@@ -1,0 +1,5 @@
+*.swp
+site
+site.o
+site.hi
+_*
