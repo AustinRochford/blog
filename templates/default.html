@@ -2,15 +2,23 @@
 <html lang="en">
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-        <title>My Hakyll Blog - $title$</title>
+        <title>Austin Rochford - $title$</title>
         <link rel="stylesheet" type="text/css" href="/css/bootswatch/bootstrap.min.css" />
         <style>
-            body {background-image: url(/textures/honey_im_subtle.png); background-repeat: repeat;}
+            body {background-image: url(/textures/paper_fibers.png); background-repeat: repeat;}
         </style>
     </head>
     <body>
-        <h1>$title$<small>Test</test></h1>
-
-        $body$
+        <div class="navbar">
+            <div class="navbar-inner">
+                <a class="brand" href="#">Austin Rochford <small>[Math, Data, Software]</small></a>
+                <ul class="nav">
+                    <li class="active"><a href="/about.html">About</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="container">
+            $body$
+        </div>
     </body>
 </html>
