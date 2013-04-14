@@ -30,7 +30,7 @@ main = hakyll $ do
     match "about.mkd" $ do
         route   $ setExtension "html"
         compile $ pandocCompiler
-            >>= loadAndApplyTemplate "templates/default.html" context
+            >>= loadAndApplyTemplate "templates/default.html" defaultContext
             >>= relativizeUrls
 
     match "posts/*" $ do
@@ -46,7 +46,7 @@ main = hakyll $ do
             let archiveCtx =
                     field "posts" (\_ -> postList recentFirst) `mappend`
                     constField "title" "Archives"              `mappend`
-                    context
+                    defaultContext
 
             makeItem ""
                 >>= loadAndApplyTemplate "templates/archive.html" archiveCtx
@@ -71,7 +71,7 @@ main = hakyll $ do
 postCtx :: Context String
 postCtx =
     dateField "date" "%B %e, %Y" `mappend`
-    context 
+    defaultContext 
 
 --------------------------------------------------------------------------------
 postList :: ([Item String] -> Compiler [Item String]) -> Compiler String
@@ -80,7 +80,3 @@ postList sortFilter = do
     itemTpl <- loadBody "templates/post-item.html"
     list    <- applyTemplateList itemTpl postCtx posts
     return list
-
-
---------------------------------------------------------------------------------
-context = defaultContext
