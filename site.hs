@@ -48,7 +48,6 @@ main = hakyll $ do
                 >>= loadAndApplyTemplate "templates/default.html" archiveCtx
                 >>= relativizeUrls
 
-
     match "index.html" $ do
         route idRoute
         compile $ do
@@ -82,6 +81,7 @@ postList sortFilter = do
 --------------------------------------------------------------------------------
 menuList :: Compiler String
 menuList = do
+    --might lead to weird ordering
     links <- loadAll "menu/*"
     tmpl <- loadBody "templates/menu-link.html"
     applyTemplateList tmpl defaultContext links
