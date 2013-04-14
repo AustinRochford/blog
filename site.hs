@@ -61,7 +61,6 @@ main = hakyll $ do
 
             getResourceBody
                 >>= applyAsTemplate indexCtx
-                >>= loadAndApplyTemplate "templates/default.html" postCtx
                 >>= relativizeUrls
 
     match "templates/*" $ compile templateCompiler
@@ -84,7 +83,4 @@ postList sortFilter = do
 
 --------------------------------------------------------------------------------
 mostRecentPost :: Compiler String
-mostRecentPost = do
-    posts <- recentFirst =<< loadAll "posts/*"
-    item <- loadAndApplyTemplate "templates/post.html" postCtx $ head posts
-    return $ itemBody item
+mostRecentPost = (itemBody . head) <$> (recentFirst =<< loadAll "posts/*")
