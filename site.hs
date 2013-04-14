@@ -27,25 +27,25 @@ main = hakyll $ do
             >>= loadAndApplyTemplate "templates/default.html" context
             >>= relativizeUrls
 
-    --match "posts/*" $ do
-    --    route $ setExtension "html"
-    --    compile $ pandocCompiler
-    --        >>= loadAndApplyTemplate "templates/post.html"    postCtx
-    --        >>= loadAndApplyTemplate "templates/default.html" postCtx
-    --        >>= relativizeUrls
+    match "posts/*" $ do
+        route $ setExtension "html"
+        compile $ pandocCompiler
+            >>= loadAndApplyTemplate "templates/post.html"    postCtx
+            >>= loadAndApplyTemplate "templates/default.html" postCtx
+            >>= relativizeUrls
 
-    --create ["archive.html"] $ do
-    --    route idRoute
-    --    compile $ do
-    --        let archiveCtx =
-    --                field "posts" (\_ -> postList recentFirst) `mappend`
-    --                constField "title" "Archives"              `mappend`
-    --                context
+    create ["archive.html"] $ do
+        route idRoute
+        compile $ do
+            let archiveCtx =
+                    field "posts" (\_ -> postList recentFirst) `mappend`
+                    constField "title" "Archives"              `mappend`
+                    context
 
-    --        makeItem ""
-    --            >>= loadAndApplyTemplate "templates/archive.html" archiveCtx
-    --            >>= loadAndApplyTemplate "templates/default.html" archiveCtx
-    --            >>= relativizeUrls
+            makeItem ""
+                >>= loadAndApplyTemplate "templates/archive.html" archiveCtx
+                >>= loadAndApplyTemplate "templates/default.html" archiveCtx
+                >>= relativizeUrls
 
 
     match "index.html" $ do
