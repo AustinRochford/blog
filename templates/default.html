@@ -7,7 +7,12 @@
         <style>
             body {background-image: url(/textures/paper_fibers.png); background-repeat: repeat;}
         </style>
-        <script src="js/jquery-1.9.1.min.js"></script>
+        <script type="text/javascript" src="js/jquery-1.9.1.min.js"></script>  
+        <script>
+            $$(document).ready(function(){
+                $$("#menu-$title$").addClass("active");
+            }); 
+        </script>
     </head>
     <body>
         <div class="navbar">
@@ -15,8 +20,8 @@
                 <div class="container">
                     <a class="brand" href="/index.html">Austin Rochford <small>[Math, Data, Software]</small></a>
                     <ul class="nav">
-                        <li><a href="/index.html">Home</a></li>
-                        <li><a href="/about.html">About</a></li>
+                        <li id="menu-Home"><a href="/index.html">Home</a></li>
+                        <li id="menu-About"><a href="/about.html">About</a></li>
                     </ul>
                     <ul class="nav pull-right">
                         <li><a href="http://www.github.com/AustinRochford"><img src="/images/github.png" style="margin:0 5px 0 0" />GitHub</a></li>
