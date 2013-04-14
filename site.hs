@@ -4,6 +4,7 @@ import           Data.Char (toLower)
 import           Data.Map (findWithDefault)
 import           Data.Maybe (fromMaybe)
 import           Data.Monoid
+import           Debug.Trace
 import           Hakyll
 
 
@@ -22,10 +23,14 @@ main = hakyll $ do
         route   idRoute
         compile compressCssCompiler
 
+    match "js/*" $ do
+        route idRoute
+        compile copyFileCompiler
+
     match "about.mkd" $ do
         route   $ setExtension "html"
         compile $ pandocCompiler
-            >>= loadAndApplyTemplate "templates/default.html" defaultContext
+            >>= loadAndApplyTemplate "templates/default.html" context
             >>= relativizeUrls
 
     match "posts/*" $ do
@@ -41,7 +46,7 @@ main = hakyll $ do
             let archiveCtx =
                     field "posts" (\_ -> postList recentFirst) `mappend`
                     constField "title" "Archives"              `mappend`
-                    defaultContext
+                    context
 
             makeItem ""
                 >>= loadAndApplyTemplate "templates/archive.html" archiveCtx
@@ -66,8 +71,7 @@ main = hakyll $ do
 postCtx :: Context String
 postCtx =
     dateField "date" "%B %e, %Y" `mappend`
-    defaultContext
-
+    context 
 
 --------------------------------------------------------------------------------
 postList :: ([Item String] -> Compiler [Item String]) -> Compiler String
@@ -79,9 +83,4 @@ postList sortFilter = do
 
 
 --------------------------------------------------------------------------------
-menuList :: Compiler String
-menuList = do
-    --might lead to weird ordering
-    links <- loadAll "menu/*"
-    tmpl <- loadBody "templates/menu-link.html"
-    applyTemplateList tmpl defaultContext links
+context = defaultContext
