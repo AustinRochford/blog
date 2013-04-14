@@ -1,5 +1,6 @@
 --------------------------------------------------------------------------------
 {-# LANGUAGE OverloadedStrings #-}
+import           Control.Applicative ((<$>))
 import           Data.Char (toLower)
 import           Data.Map (findWithDefault)
 import           Data.Maybe (fromMaybe)
@@ -56,8 +57,7 @@ main = hakyll $ do
     match "index.html" $ do
         route idRoute
         compile $ do
-            let indexCtx = field "posts" $ \_ ->
-                                postList $ fmap (take 3) . recentFirst
+            let indexCtx = field "post" $ const mostRecentPost
 
             getResourceBody
                 >>= applyAsTemplate indexCtx
@@ -80,3 +80,11 @@ postList sortFilter = do
     itemTpl <- loadBody "templates/post-item.html"
     list    <- applyTemplateList itemTpl postCtx posts
     return list
+
+
+--------------------------------------------------------------------------------
+mostRecentPost :: Compiler String
+mostRecentPost = do
+    posts <- recentFirst =<< loadAll "posts/*"
+    item <- loadAndApplyTemplate "templates/post.html" postCtx $ head posts
+    return $ itemBody item
