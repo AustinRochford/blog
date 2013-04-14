@@ -2,6 +2,7 @@
 {-# LANGUAGE OverloadedStrings #-}
 import           Data.Char (toLower)
 import           Data.Map (findWithDefault)
+import           Data.Maybe (fromMaybe)
 import           Data.Monoid
 import           Hakyll
 
@@ -24,7 +25,7 @@ main = hakyll $ do
     match "about.mkd" $ do
         route   $ setExtension "html"
         compile $ pandocCompiler
-            >>= loadAndApplyTemplate "templates/default.html" context
+            >>= loadAndApplyTemplate "templates/default.html" defaultContext
             >>= relativizeUrls
 
     match "posts/*" $ do
@@ -40,7 +41,7 @@ main = hakyll $ do
             let archiveCtx =
                     field "posts" (\_ -> postList recentFirst) `mappend`
                     constField "title" "Archives"              `mappend`
-                    context
+                    defaultContext
 
             makeItem ""
                 >>= loadAndApplyTemplate "templates/archive.html" archiveCtx
@@ -66,7 +67,7 @@ main = hakyll $ do
 postCtx :: Context String
 postCtx =
     dateField "date" "%B %e, %Y" `mappend`
-    context
+    defaultContext
 
 
 --------------------------------------------------------------------------------
@@ -79,17 +80,8 @@ postList sortFilter = do
 
 
 --------------------------------------------------------------------------------
-context :: Context String
-context = activeContext `mappend` defaultContext
-
-activeContext :: Context a
-activeContext = mconcat $ map activeContextLink links
-
-activeContextLink :: String -> Context a
-activeContextLink link = field (link ++ "-active") $ \item -> do
-    metadata <- getMetadata $ itemIdentifier item
-    let title = map toLower $ findWithDefault "" "title" metadata
-    return $ if title == link then "active" else ""
-
---it would be nice to automatically generate the menu from these
-links = ["home", "about"]
+menuList :: Compiler String
+menuList = do
+    links <- loadAll "menu/*"
+    tmpl <- loadBody "templates/menu-link.html"
+    applyTemplateList tmpl defaultContext links
