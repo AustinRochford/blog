@@ -6,7 +6,6 @@ title: About
 
 <img src="http://www.gravatar.com/avatar/b464bd12dd8e08493990689147d7a422?s=128" class="img-rounded" style="float:left;margin:0 10px 0 0;" />
 
-
 I am Austin Rochford, a PhD student in the [Department of Mathematics](http://www.math.uiuc.edu) at the [University of Illinois, Urbana-Champaign](http://www.uiuc.edu).  My academic research is in [operator algebras](http://en.wikipedia.org/wiki/Operator_algebra), specifically the relationship between geometric group theory and analytic approximation properties.
 
 As I near the completion of my degree, I am transitioning into an industry career in data science.
