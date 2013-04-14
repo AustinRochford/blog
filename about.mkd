@@ -1,9 +1,6 @@
 ---
 title: About
 ---
-> "We have got to the deductions and the inferences," said Lestrade, winking at me. "I find it hard enough to tackle facts, Holmes, without flying away after theories and fancies."
-> <small>Dr. Watson, _The Boscombe Valley Mystery_</small>
-
 <img src="http://www.gravatar.com/avatar/b464bd12dd8e08493990689147d7a422?s=128" class="img-rounded" style="float:left;margin:0 10px 0 0;" />
 
 I am Austin Rochford, a PhD student in the [Department of Mathematics](http://www.math.uiuc.edu) at the [University of Illinois, Urbana-Champaign](http://www.uiuc.edu).  My academic research is in [operator algebras](http://en.wikipedia.org/wiki/Operator_algebra), specifically the relationship between geometric group theory and analytic approximation properties.
