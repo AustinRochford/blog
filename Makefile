@@ -1,10 +1,10 @@
 clean: site
 	./site clean
 
-preview: site
+preview: rebuild
 	./site preview
 
-rebuild: site
+rebuild: site _site
 	./site rebuild
 
 site: site.hs
