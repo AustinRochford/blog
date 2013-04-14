@@ -38,6 +38,7 @@ main = hakyll $ do
         route $ setExtension "html"
         compile $ pandocCompiler
             >>= loadAndApplyTemplate "templates/post.html"    postCtx
+            >>= saveSnapshot "content"
             >>= loadAndApplyTemplate "templates/default.html" postCtx
             >>= relativizeUrls
 
@@ -58,9 +59,11 @@ main = hakyll $ do
         route idRoute
         compile $ do
             let indexCtx = field "post" $ const mostRecentPost
+            let homeCtx = constField "title" "Home" `mappend` defaultContext
 
             getResourceBody
                 >>= applyAsTemplate indexCtx
+                >>= loadAndApplyTemplate "templates/default.html" homeCtx
                 >>= relativizeUrls
 
     match "templates/*" $ compile templateCompiler
@@ -83,4 +86,4 @@ postList sortFilter = do
 
 --------------------------------------------------------------------------------
 mostRecentPost :: Compiler String
-mostRecentPost = (itemBody . head) <$> (recentFirst =<< loadAll "posts/*")
+mostRecentPost = (itemBody . head) <$> (recentFirst =<< loadAllSnapshots "posts/*" "content")
