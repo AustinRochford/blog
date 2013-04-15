@@ -4,7 +4,7 @@ clean: site
 preview: rebuild
 	./site preview
 
-rebuild: site _site
+rebuild: site
 	./site rebuild
 
 site: site.hs
