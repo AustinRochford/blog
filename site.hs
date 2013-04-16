@@ -34,10 +34,13 @@ main = hakyll $ do
             >>= loadAndApplyTemplate "templates/default.html" defaultContext
             >>= relativizeUrls
 
+    --for some reason, moving it this late gets the links right while putting it first doesn't
+    tags <- buildTags "posts/*" $ fromCapture "tags/*.html"
+
     match "posts/*" $ do
         route $ setExtension "html"
         compile $ pandocCompiler
-            >>= loadAndApplyTemplate "templates/post.html"    postCtx
+            >>= loadAndApplyTemplate "templates/post.html"    (taggedPostCtx tags)
             >>= saveSnapshot "content"
             >>= loadAndApplyTemplate "templates/default.html" postCtx
             >>= relativizeUrls
@@ -54,8 +57,6 @@ main = hakyll $ do
                 >>= loadAndApplyTemplate "templates/archive.html" archiveCtx
                 >>= loadAndApplyTemplate "templates/default.html" archiveCtx
                 >>= relativizeUrls
-
-    tags <- buildTags "posts/*" $ fromCapture "tags/*.html"
 
     tagsRules tags $ \tag pattern -> do
         let tagCtx = constField "title" ("Posts tagged " ++ tag) `mappend` defaultContext
@@ -95,9 +96,12 @@ main = hakyll $ do
 
 --------------------------------------------------------------------------------
 postCtx :: Context String
-postCtx =
-    dateField "date" "%B %e, %Y" `mappend`
-    defaultContext 
+postCtx =   dateField "date" "%B %e, %Y"    `mappend`
+            defaultContext 
+
+taggedPostCtx :: Tags -> Context String
+taggedPostCtx tags =    tagsField "tags" tags  `mappend`
+                        postCtx
 
 --------------------------------------------------------------------------------
 postList :: ([Item String] -> Compiler [Item String]) -> Compiler String
