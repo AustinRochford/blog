@@ -59,7 +59,7 @@ main = hakyll $ do
         route idRoute
         compile $ do
             tags <- buildTags "posts/*" $ fromCapture "tags/*.html"
-            renderTagCloud 300 100 tags
+            renderTagCloud 100 300 tags
                 >>= makeItem
                 >>= loadAndApplyTemplate "templates/default.html" defaultContext
             
