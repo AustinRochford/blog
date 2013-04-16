@@ -55,6 +55,15 @@ main = hakyll $ do
                 >>= loadAndApplyTemplate "templates/default.html" archiveCtx
                 >>= relativizeUrls
 
+    create ["tags.html"] $ do
+        route idRoute
+        compile $ do
+            tags <- buildTags "posts/*" $ fromCapture "tags/*.html"
+            renderTagCloud 300 100 tags
+                >>= makeItem
+                >>= loadAndApplyTemplate "templates/default.html" defaultContext
+            
+
     match "index.html" $ do
         route idRoute
         compile $ do
