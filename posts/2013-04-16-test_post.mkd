@@ -1,0 +1,5 @@
+---
+title: Test Post
+tags: test1, test3
+---
+This post is testing the tag system.
