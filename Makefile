@@ -1,6 +1,9 @@
 clean: site
 	./site clean
 
+post:
+	touch posts/`date +%Y-%m-%d`-${TITLE}.mkd
+
 preview: rebuild
 	./site preview
 
