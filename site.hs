@@ -75,6 +75,7 @@ main = hakyll $ do
 
             renderTagCloud 100 300 tags
                 >>= makeItem
+                >>= loadAndApplyTemplate "templates/cloud.html" cloudCtx
                 >>= loadAndApplyTemplate "templates/default.html" cloudCtx
                 >>= relativizeUrls
 
