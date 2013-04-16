@@ -55,14 +55,28 @@ main = hakyll $ do
                 >>= loadAndApplyTemplate "templates/default.html" archiveCtx
                 >>= relativizeUrls
 
+    tags <- buildTags "posts/*" $ fromCapture "tags/*.html"
+
+    tagsRules tags $ \tag pattern -> do
+        let tagCtx = constField "title" ("Posts tagged " ++ tag) `mappend` defaultContext
+
+        route idRoute
+        compile $ do
+            postsTagged tags pattern recentFirst
+                >>= makeItem
+                >>= loadAndApplyTemplate "templates/tag.html" tagCtx
+                >>= loadAndApplyTemplate "templates/default.html" tagCtx
+                >>= relativizeUrls
+
     create ["tags.html"] $ do
         route idRoute
         compile $ do
-            tags <- buildTags "posts/*" $ fromCapture "tags/*.html"
+            let cloudCtx = constField "title" "Tags" `mappend` defaultContext
+
             renderTagCloud 100 300 tags
                 >>= makeItem
-                >>= loadAndApplyTemplate "templates/default.html" defaultContext
-            
+                >>= loadAndApplyTemplate "templates/default.html" cloudCtx
+                >>= relativizeUrls
 
     match "index.html" $ do
         route idRoute
@@ -92,6 +106,13 @@ postList sortFilter = do
     list    <- applyTemplateList itemTpl postCtx posts
     return list
 
+
+--------------------------------------------------------------------------------
+postsTagged :: Tags -> Pattern -> ([Item String] -> Compiler [Item String]) -> Compiler String
+postsTagged tags pattern sortFilter = do
+    template <- loadBody "templates/post-item.html"
+    posts <- sortFilter =<< loadAll pattern
+    applyTemplateList template postCtx posts
 
 --------------------------------------------------------------------------------
 mostRecentPost :: Compiler String
