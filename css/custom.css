@@ -3,6 +3,10 @@ body {
     background-repeat: repeat;
 }
 
+code {
+    color: black;
+}
+
 pre code {
     color: black;
 }
