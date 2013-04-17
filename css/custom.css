@@ -3,6 +3,11 @@ body {
     background-repeat: repeat;
 }
 
+pre code {
+    color: black;
+}
+
+/*Alignment tweaks for social sharing buttons*/
 /* This gets Google to fall into place */
 .social {
     font-size: 1px;
