@@ -1,0 +1,64 @@
+---
+title: Functional Blogging in Haskell with Hakyll, Part 1
+tags: Hakyll, Haskell, Open Source
+---
+
+<img src="/images/haskell.png" style="float:left;margin:0 5px 0 0;" />
+[Hakyll](http://jaspervdj.be/hakyll/) is a static site generator written in [Haskell](http://haskell.org) and similar in spirit to Ruby's [Jekyll](http://jekyllrb.com/) and Python's [Pelican](http://docs.getpelican.com/en/3.1.1/).  The Haskell code, HTML templates, and JavaScript and CSS files used by Hakyll to generate this blog are open source and available on [GitHub](http://github.com/AustinRochford/blog) under the [MIT License](http://opensource.org/licenses/MIT).  This post covers the Hakyll concepts necessary to understand and modify the code used to generate this site.  The JavaScript and CSS for this site are fairly simple; it uses [Twitter Bootstrap](http://twitter.github.io/bootstrap/index.html), specifically the [Bootswatch](http://bootswatch.com/) theme [Cosmo](http://bootswatch.com/cosmo/), and a tiny bit of [jQuery](http://jquery.com/).
+
+The level of Haskell knowledge necessary to use Hakyll depends on your objective.  It is possible to run a clone of one of the many [open source Hakyll-driven blogs](http://jaspervdj.be/hakyll/examples.html) with only minimal knowledge of Haskell.  A nontrivial modification to one of these sites requires at least a basic understanding of [monads](http://www.haskell.org/haskellwiki/Monad) and [do-notation](http://en.wikibooks.org/wiki/Haskell/do_Notation).  Fortunately there are several excellent, free, online resources for learning Haskell, such as [Learn You a Haskell for Great Good!](http://learnyouahaskell.com/) and [Real World Haskell](http://book.realworldhaskell.org/).
+
+The first order of business is to install Hakyll.  While many Hakyll is available as a binary package on many Linux distributions, these packages are often quite out of date.  For example, the current version of Hakyll is 4.2.0.0, while the [package](http://packages.ubuntu.com/quantal/haskell/libghc-hakyll-dev) currently available in Ubuntu Quantal is version 3.2.7.2.  *This post specifically covers Hakyll version 4, which is substantially different from version 3.*  Fortunately, the Haskell community has long regcognized the need for a Haskell-specific package manager, and we have [cabal](http://www.haskell.org/cabal/).  After installing cabal using your distribution's package manager (which will also download and install [GHC](http://www.haskell.org/ghc/), the standard Haskell compiler, if you don't already have it) executing the commands
+
+```
+% cabal update
+% cabal install hakyll
+```
+
+in a terminal will compile Hakyll and its dependencies.  I have found that to acheive the most stable Haskell environment, GHC and cabal should be installed using the distributions package manager, and all other Haskell packages should be managed using cabal.  Compiling cabal and its dependencies may take some time.  Also, I had to temporarily increase the amount of RAM allocated to my VPS while compiling some depedencies.
+
+In order to gain familiarity with the fundemental concepts of Hakyll, we will first examine a simple Hakyll-generated site consisting of one page created by merging the contents of a markdown file with an html template.  The exmaple requires three files, `index.mkd`, `template.html`, and `site.hs`.
+
+The first two files are fairly simple.  The file `index.mkd` contains the following markdown.
+
+```
+---
+title: Sample contents
+---
+
+Here's the body.
+```
+
+If you're unfamiliar with [markdown](http://johnmacfarlane.net/pandoc/demo/example9/pandocs-markdown.html), take a moment to familiarize yourself with it.  When compiled by Hakyll using [Pandoc](http://johnmacfarlane.net/pandoc/), this file produces an item with metadata field `title` with the value "Sample contents" and `body` field with the value "Here's the body.".
+
+The file `template.html` contains the following markup.
+
+``` html
+<html>
+<head><title>$title$</title></head>
+<body>
+    <h1>$title</h1>
+
+    $body$
+</body>
+</html>
+```
+
+Any text of the form `$field$` in a template causes Hakyll to replace that text with the corresponding field from the item the template is being applied to.  To have the literal text \$field\$ appear in the final page, enter `$$field$$` in the template.
+
+Now let's see how Hakyll merges these two files together into a page ready for viewing.  The file `site.hs` contains the following Haskell code.
+
+``` haskell
+import Hakyll
+
+main :: IO ()
+main = hakyll $ do
+    match "content.mkd" $ do 
+        route $ setExtension "html"
+        compile $ pandocCompiler
+            >>= loadAndApplyTemplate "template.html" defaultContext
+
+    match "template.html" $ compile templateCompiler
+```
+
+First we'll run the commands to produce and view the page.  The command `ghc --make site.hs` compiles the `site` binary.  Next, the command `./site preview` builds the site and runs a webserver so that the page may be viewed at `localhost:8000`.  Additionally, this process watches for changes to the files used to build the page and automatically rebuilds when necessary.
