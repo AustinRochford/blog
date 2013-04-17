@@ -1,0 +1,7 @@
+---
+title: Functional Blogging in Haskell with Hakyll
+tags: Hakyll, Haskell, Open Source
+---
+
+<img src="/images/haskell.png" style="float:left;margin:0 5px 0 0;" />
+[Hakyll](http://jaspervdj.be/hakyll/) is a static site generator written in [Haskell](http://haskell.org) and similar in spirit to Ruby's [Jekyll](http://jekyllrb.com/) and Python's [Pelican](http://docs.getpelican.com/en/3.1.1/).  The Haskell code, HTML templates, and JavaScript and CSS files used by Hakyll to generate this blog are open source and available on [GitHub](http://github.com/AustinRochford/blog) under the [MIT License](http://opensource.org/licenses/MIT).  This post covers the Hakyll concepts necessary to understand
