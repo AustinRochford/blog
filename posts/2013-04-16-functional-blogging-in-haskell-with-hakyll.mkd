@@ -1,9 +1,0 @@
----
-title: Functional Blogging in Haskell with Hakyll
-tags: Hakyll, Haskell, Open Source
----
-
-<img src="/images/haskell.png" style="float:left;margin:0 5px 0 0;" />
-[Hakyll](http://jaspervdj.be/hakyll/) is a static site generator written in [Haskell](http://haskell.org) and similar in spirit to Ruby's [Jekyll](http://jekyllrb.com/) and Python's [Pelican](http://docs.getpelican.com/en/3.1.1/).  The Haskell code, HTML templates, and JavaScript and CSS files used by Hakyll to generate this blog are open source and available on [GitHub](http://github.com/AustinRochford/blog) under the [MIT License](http://opensource.org/licenses/MIT).  This post covers the Hakyll concepts necessary to understand and modify the code used to generate this site.  The JavaScript and CSS for this site are fairly simple; it uses [Twitter Bootstrap](http://twitter.github.io/bootstrap/index.html), specifically the [Bootswatch](http://bootswatch.com/) theme [Cosmo](http://bootswatch.com/cosmo/), and a tiny bit of [jQuery](http://jquery.com/).
-
-The level of Haskell knowledge necessary to use Hakyll depends on your objective.  It is possible to run a clone of one of the many [open source Hakyll-driven blogs](http://jaspervdj.be/hakyll/examples.html) with only minimal knowledge of Haskell.  A nontrivial modification to one of these sites requires at least a basic understanding of [monads](http://www.haskell.org/haskellwiki/Monad) and [do-notation](http://en.wikibooks.org/wiki/Haskell/do_Notation).  Fortunately there are several excellent, free, online resources for learning Haskell, such as [Learn You a Haskell for Great Good!](http://learnyouahaskell.com/) and [Real World Haskell](http://book.realworldhaskell.org/).
