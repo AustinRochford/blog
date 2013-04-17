@@ -1,7 +1,6 @@
 --------------------------------------------------------------------------------
 {-# LANGUAGE OverloadedStrings #-}
 import           Control.Applicative ((<$>))
-import           Data.Char (toLower)
 import           Data.Map (findWithDefault)
 import           Data.Maybe (fromMaybe)
 import           Data.Monoid
