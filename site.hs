@@ -90,6 +90,10 @@ main = hakyll $ do
                 >>= loadAndApplyTemplate "templates/default.html" homeCtx
                 >>= relativizeUrls
 
+    match "resources/**" $ do
+        route idRoute
+        compile copyFileCompiler
+
     match "templates/*" $ compile templateCompiler
 
 
