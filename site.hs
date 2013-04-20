@@ -94,6 +94,10 @@ main = hakyll $ do
         route idRoute
         compile copyFileCompiler
 
+    match "favicon.ico" $ do
+        route idRoute
+        compile copyFileCompiler
+
     match "templates/*" $ compile templateCompiler
 
 
