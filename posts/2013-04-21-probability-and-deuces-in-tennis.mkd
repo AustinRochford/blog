@@ -1,8 +1,0 @@
----
-title: Probability and Tennis Deuces
-tags: Probability, Tennis
----
-
-An interesting fact about tennis is that its deuce structure is biased towards towards the better player more than might be expected.  That is, if the better player in a match has probability $p$ of winning any given point (so that $p > 0.5$), the probability that they win a game that has resulted in a deuce is greater than $p$.
-
-The smallest unit of scoring in tennis is a point, which occurs when one
