@@ -1,14 +1,11 @@
---------------------------------------------------------------------------------
 {-# LANGUAGE OverloadedStrings #-}
-import           Control.Applicative ((<$>))
-import           Data.Map (findWithDefault)
-import           Data.Maybe (fromMaybe)
-import           Data.Monoid
-import           Debug.Trace
-import           Hakyll
+import Control.Applicative ((<$>))
+import Data.Map (findWithDefault)
+import Data.Maybe (fromMaybe)
+import Data.Monoid
+import Debug.Trace
+import Hakyll
 
-
---------------------------------------------------------------------------------
 main :: IO ()
 main = hakyll $ do
     match "images/*" $ do
@@ -39,7 +36,7 @@ main = hakyll $ do
     match "posts/*" $ do
         route $ setExtension "html"
         compile $ pandocCompiler
-            >>= loadAndApplyTemplate "templates/post.html"    (taggedPostCtx tags)
+            >>= loadAndApplyTemplate "templates/post.html" (taggedPostCtx tags)
             >>= saveSnapshot "content"
             >>= loadAndApplyTemplate "templates/default.html" postCtx
             >>= relativizeUrls
@@ -48,8 +45,8 @@ main = hakyll $ do
         route idRoute
         compile $ do
             let archiveCtx =
-                    field "posts" (\_ -> postList recentFirst) `mappend`
-                    constField "title" "Archive"              `mappend`
+                    field "posts" (const $ postList recentFirst)    `mappend`
+                    constField "title" "Archive"                    `mappend`
                     defaultContext
 
             makeItem ""
@@ -101,16 +98,9 @@ main = hakyll $ do
     match "templates/*" $ compile templateCompiler
 
 
---------------------------------------------------------------------------------
 postCtx :: Context String
-postCtx =   dateField "date" "%B %e, %Y"    `mappend`
-            defaultContext 
+postCtx = dateField "date" "%B %e, %Y" `mappend` defaultContext
 
-taggedPostCtx :: Tags -> Context String
-taggedPostCtx tags =    tagsField "tags" tags  `mappend`
-                        postCtx
-
---------------------------------------------------------------------------------
 postList :: ([Item String] -> Compiler [Item String]) -> Compiler String
 postList sortFilter = do
     posts   <- sortFilter =<< loadAll "posts/*"
@@ -118,14 +108,14 @@ postList sortFilter = do
     list    <- applyTemplateList itemTpl postCtx posts
     return list
 
-
---------------------------------------------------------------------------------
 postsTagged :: Tags -> Pattern -> ([Item String] -> Compiler [Item String]) -> Compiler String
 postsTagged tags pattern sortFilter = do
     template <- loadBody "templates/post-item.html"
     posts <- sortFilter =<< loadAll pattern
     applyTemplateList template postCtx posts
 
---------------------------------------------------------------------------------
 mostRecentPost :: Compiler String
 mostRecentPost = (itemBody . head) <$> (recentFirst =<< loadAllSnapshots "posts/*" "content")
+
+taggedPostCtx :: Tags -> Context String
+taggedPostCtx tags = tagsField "tags" tags `mappend` postCtx
