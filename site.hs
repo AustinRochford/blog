@@ -110,7 +110,7 @@ pandocMathReaderOptions = defaultHakyllReaderOptions {
 pandocMathWriterOptions :: WriterOptions
 pandocMathWriterOptions  = defaultHakyllWriterOptions {
         writerExtensions = Set.union (writerExtensions defaultHakyllWriterOptions) extensions,
-        writerHTMLMathMethod = PlainMath
+        writerHTMLMathMethod = MathJax ""
 }
 
 postCtx :: Context String
