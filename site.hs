@@ -1,9 +1,8 @@
 {-# LANGUAGE OverloadedStrings #-}
 import Control.Applicative ((<$>))
-import Data.Map (findWithDefault)
-import Data.Maybe (fromMaybe)
 import Data.Monoid
-import Debug.Trace
+import qualified Data.Set as Set
+import Text.Pandoc.Options
 import Hakyll
 
 main :: IO ()
@@ -26,7 +25,7 @@ main = hakyll $ do
 
     match "about.mkd" $ do
         route   $ setExtension "html"
-        compile $ pandocCompiler
+        compile $ pandocCompiler'
             >>= loadAndApplyTemplate "templates/default.html" defaultContext
             >>= relativizeUrls
 
@@ -35,7 +34,7 @@ main = hakyll $ do
 
     match "posts/*" $ do
         route $ setExtension "html"
-        compile $ pandocCompiler
+        compile $ pandocCompiler'
             >>= loadAndApplyTemplate "templates/post.html" (taggedPostCtx tags)
             >>= saveSnapshot "content"
             >>= loadAndApplyTemplate "templates/default.html" postCtx
@@ -97,6 +96,22 @@ main = hakyll $ do
 
     match "templates/*" $ compile templateCompiler
 
+extensions :: Set.Set Extension
+extensions = Set.singleton Ext_tex_math_dollars
+
+pandocCompiler' :: Compiler (Item String)
+pandocCompiler' = pandocCompilerWith pandocMathReaderOptions pandocMathWriterOptions
+
+pandocMathReaderOptions :: ReaderOptions
+pandocMathReaderOptions = defaultHakyllReaderOptions {
+        readerExtensions = Set.union (readerExtensions defaultHakyllReaderOptions) extensions
+    }
+
+pandocMathWriterOptions :: WriterOptions
+pandocMathWriterOptions  = defaultHakyllWriterOptions {
+        writerExtensions = Set.union (writerExtensions defaultHakyllWriterOptions) extensions,
+        writerHTMLMathMethod = PlainMath
+}
 
 postCtx :: Context String
 postCtx = dateField "date" "%B %e, %Y" `mappend` defaultContext
