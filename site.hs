@@ -26,6 +26,12 @@ main = hakyll $ do
             >>= loadAndApplyTemplate "templates/default.html" defaultContext
             >>= relativizeUrls
 
+    match "dogs.mkd" $ do
+        route $ setExtension "html"
+        compile $ pandocCompiler'
+            >>= loadAndApplyTemplate "templates/default.html" defaultContext
+            >>=relativizeUrls
+
     --for some reason, moving it this late gets the links right while putting it first doesn't
     tags <- buildTags "posts/*" $ fromCapture "tags/*.html"
 
