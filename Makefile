@@ -1,5 +1,10 @@
+LIVE=/home/austin/www/live
+
 clean: site
 	./site clean
+
+deploy: rebuild
+	rsync --recursive --delete --checksum _site/ ${LIVE}
 
 post:
 	touch posts/`date +%Y-%m-%d`-${TITLE}.mkd
