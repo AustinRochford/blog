@@ -1,4 +1,5 @@
 {-# LANGUAGE OverloadedStrings #-}
+
 import Control.Applicative ((<$>))
 import Data.Monoid
 import qualified Data.Set as Set
@@ -40,16 +41,16 @@ main = hakyll $ do
             >>= loadAndApplyTemplate "templates/default.html" postCtx
             >>= relativizeUrls
 
-    create ["archive.html"] $ do
+    create ["posts.html"] $ do
         route idRoute
         compile $ do
             let archiveCtx =
                     field "posts" (const $ postList recentFirst)    `mappend`
-                    constField "title" "Archive"                    `mappend`
+                    constField "title" "Posts"                      `mappend`
                     defaultContext
 
             makeItem ""
-                >>= loadAndApplyTemplate "templates/archive.html" archiveCtx
+                >>= loadAndApplyTemplate "templates/posts.html" archiveCtx
                 >>= loadAndApplyTemplate "templates/default.html" archiveCtx
                 >>= relativizeUrls
 
