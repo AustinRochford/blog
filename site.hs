@@ -97,6 +97,14 @@ main = hakyll $ do
         route idRoute
         compile copyFileCompiler
 
+    create ["rss.xml"] $ do
+        route idRoute
+        compile $ do
+            let feedCtx = postCtx `mappend` bodyField "description"
+
+            posts <- (take 10) <$> (recentFirst =<< loadAllSnapshots "posts/*" "content")
+            renderRss feedConfig feedCtx posts
+
     match "templates/*" $ compile templateCompiler
 
 extensions :: Set.Set Extension
