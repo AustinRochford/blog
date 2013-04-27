@@ -102,6 +102,18 @@ main = hakyll $ do
 extensions :: Set.Set Extension
 extensions = Set.singleton Ext_tex_math_dollars
 
+feedConfig :: FeedConfiguration
+feedConfig = FeedConfiguration {
+        feedTitle       = "AustinRochford.com",
+        feedDescription = "Math, Data, and Software",
+        feedAuthorName  = "Austin Rochford",
+        feedAuthorEmail = "austin.rochford@gmail.com",
+        feedRoot        = "http://www.austinrochford.com"
+    }
+
+mostRecentPost :: Compiler String
+mostRecentPost = (itemBody . head) <$> (recentFirst =<< loadAllSnapshots "posts/*" "content")
+
 pandocCompiler' :: Compiler (Item String)
 pandocCompiler' = pandocCompilerWith pandocMathReaderOptions pandocMathWriterOptions
 
@@ -115,9 +127,6 @@ pandocMathWriterOptions  = defaultHakyllWriterOptions {
         writerExtensions = Set.union (writerExtensions defaultHakyllWriterOptions) extensions,
         writerHTMLMathMethod = MathJax ""
 }
-
-mostRecentPost :: Compiler String
-mostRecentPost = (itemBody . head) <$> (recentFirst =<< loadAllSnapshots "posts/*" "content")
 
 postCtx :: Context String
 postCtx = dateField "date" "%B %e, %Y" `mappend` defaultContext
