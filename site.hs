@@ -116,6 +116,9 @@ pandocMathWriterOptions  = defaultHakyllWriterOptions {
         writerHTMLMathMethod = MathJax ""
 }
 
+mostRecentPost :: Compiler String
+mostRecentPost = (itemBody . head) <$> (recentFirst =<< loadAllSnapshots "posts/*" "content")
+
 postCtx :: Context String
 postCtx = dateField "date" "%B %e, %Y" `mappend` defaultContext
 
@@ -131,9 +134,6 @@ postsTagged tags pattern sortFilter = do
     template <- loadBody "templates/post-item.html"
     posts <- sortFilter =<< loadAll pattern
     applyTemplateList template postCtx posts
-
-mostRecentPost :: Compiler String
-mostRecentPost = (itemBody . head) <$> (recentFirst =<< loadAllSnapshots "posts/*" "content")
 
 taggedPostCtx :: Tags -> Context String
 taggedPostCtx tags = tagsField "tags" tags `mappend` postCtx
