@@ -8,15 +8,24 @@ import Hakyll
 
 main :: IO ()
 main = hakyll $ do
-    match "images/*" $ do
-        route   idRoute
-        compile copyFileCompiler
-
+    --rules to copy files (nearly) unmodified
     match "css/**" $ do
         route   idRoute
         compile compressCssCompiler
 
+    match "favicon.ico" $ do
+        route idRoute
+        compile copyFileCompiler
+
+    match "images/*" $ do
+        route   idRoute
+        compile copyFileCompiler
+
     match "js/*" $ do
+        route idRoute
+        compile copyFileCompiler
+
+    match "resources/**" $ do
         route idRoute
         compile copyFileCompiler
 
@@ -32,6 +41,7 @@ main = hakyll $ do
             >>= loadAndApplyTemplate "templates/default.html" defaultContext
             >>=relativizeUrls
 
+    --building posts and post-related pages
     --for some reason, moving it this late gets the links right while putting it first doesn't
     tags <- buildTags "posts/*" $ fromCapture "tags/*.html"
 
@@ -56,6 +66,7 @@ main = hakyll $ do
                 >>= loadAndApplyTemplate "templates/default.html" archiveCtx
                 >>= relativizeUrls
 
+    --building tag pages and tag cloud
     tagsRules tags $ \tag pattern -> do
         let tagCtx = constField "title" ("Posts tagged " ++ tag) `mappend` defaultContext
 
@@ -78,6 +89,7 @@ main = hakyll $ do
                 >>= loadAndApplyTemplate "templates/default.html" cloudCtx
                 >>= relativizeUrls
 
+    --building the front page
     match "index.html" $ do
         route idRoute
         compile $ do
@@ -89,14 +101,7 @@ main = hakyll $ do
                 >>= loadAndApplyTemplate "templates/default.html" homeCtx
                 >>= relativizeUrls
 
-    match "resources/**" $ do
-        route idRoute
-        compile copyFileCompiler
-
-    match "favicon.ico" $ do
-        route idRoute
-        compile copyFileCompiler
-
+    --building the RSS feed
     create ["rss.xml"] $ do
         route idRoute
         compile $ do
@@ -105,6 +110,7 @@ main = hakyll $ do
             posts <- (take 10) <$> (recentFirst =<< loadAllSnapshots "posts/*" "content")
             renderRss feedConfig feedCtx posts
 
+    --loading the templated
     match "templates/*" $ compile templateCompiler
 
 extensions :: Set.Set Extension
