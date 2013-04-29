@@ -93,7 +93,7 @@ main = hakyll $ do
     match "index.html" $ do
         route idRoute
         compile $ do
-            let indexCtx = field "post" $ const mostRecentPost
+            let indexCtx = field "post" $ const (itemBody <$> mostRecentPost)
             let homeCtx = constField "title" "Home" `mappend` defaultContext
 
             getResourceBody
@@ -125,8 +125,8 @@ feedConfig = FeedConfiguration {
         feedRoot        = "http://www.austinrochford.com"
     }
 
-mostRecentPost :: Compiler String
-mostRecentPost = (itemBody . head) <$> (recentFirst =<< loadAllSnapshots "posts/*" "content")
+mostRecentPost :: Compiler (Item String)
+mostRecentPost = head <$> (recentFirst =<< loadAllSnapshots "posts/*" "content")
 
 pandocCompiler' :: Compiler (Item String)
 pandocCompiler' = pandocCompilerWith pandocMathReaderOptions pandocMathWriterOptions
