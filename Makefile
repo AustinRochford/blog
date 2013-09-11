@@ -3,7 +3,7 @@ LIVE=/home/austin/www/live
 clean: site
 	./site clean
 
-deploy: rebuild
+deploy: clean rebuild
 	rsync --recursive --delete --checksum _site/ ${LIVE}
 
 post:
