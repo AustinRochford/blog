@@ -114,7 +114,7 @@ main = hakyll $ do
     match "templates/*" $ compile templateCompiler
 
 extensions :: Set.Set Extension
-extensions = Set.singleton Ext_tex_math_dollars
+extensions = Set.fromList [Ext_inline_notes, Ext_tex_math_dollars]
 
 feedConfig :: FeedConfiguration
 feedConfig = FeedConfiguration {
