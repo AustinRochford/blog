@@ -1,19 +1,19 @@
-LIVE=/home/austin/www/live
+LIVE_URI=daisy:~/www/live
+
+CABAL=/Users/austin/Library/Haskell/bin/cabal
+EXECUTABLE=./dist/build/blog/blog
 
 clean: site
-	./site clean
+	${EXECUTABLE} clean
 
 deploy: clean rebuild
-	rsync --recursive --delete --checksum _site/ ${LIVE}
-
-post:
-	touch posts/`date +%Y-%m-%d`-${TITLE}.mkd
+	rsync --recursive --delete --checksum _site/ ${LIVE_URI}
 
 preview: rebuild
-	./site preview
+	${EXECUTABLE} watch
 
 rebuild: site
-	./site rebuild
+	${EXECUTABLE} rebuild
 
 site: site.hs
-	ghc --make site.hs
+	${CABAL} build
