@@ -17,14 +17,6 @@ main = hakyll $ do
         route idRoute
         compile copyFileCompiler
 
-    match "images/*" $ do
-        route   idRoute
-        compile copyFileCompiler
-
-    match "js/*" $ do
-        route idRoute
-        compile copyFileCompiler
-
     match "resources/**" $ do
         route idRoute
         compile copyFileCompiler
@@ -34,12 +26,6 @@ main = hakyll $ do
         compile $ pandocCompiler'
             >>= loadAndApplyTemplate "templates/default.html" defaultContext
             >>= relativizeUrls
-
-    match "dogs.mkd" $ do
-        route $ setExtension "html"
-        compile $ pandocCompiler'
-            >>= loadAndApplyTemplate "templates/default.html" defaultContext
-            >>=relativizeUrls
 
     --building posts and post-related pages
     --for some reason, moving it this late gets the links right while putting it first doesn't
