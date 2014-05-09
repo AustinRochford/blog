@@ -3,7 +3,7 @@ LIVE_URI=daisy:~/www/live
 CABAL=/Users/austin/Library/Haskell/bin/cabal
 EXECUTABLE=./dist/build/blog/blog
 
-clean: site
+clean: ${EXECUTABLE}
 	${EXECUTABLE} clean
 
 deploy: clean rebuild
@@ -12,8 +12,8 @@ deploy: clean rebuild
 preview: rebuild
 	${EXECUTABLE} watch
 
-rebuild: site
+rebuild: ${EXECUTABLE}
 	${EXECUTABLE} rebuild
 
-site: site.hs
+${EXECUTABLE}: site.hs
 	${CABAL} build
