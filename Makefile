@@ -7,7 +7,7 @@ clean: ${EXECUTABLE}
 	${EXECUTABLE} clean
 
 deploy: clean rebuild
-	rsync --recursive --checksum _site/ ${LIVE_URI}
+	rsync -a --checksum _site/ ${LIVE_URI}
 
 preview: rebuild
 	${EXECUTABLE} watch
