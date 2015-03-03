@@ -6,11 +6,11 @@ EXECUTABLE=./dist/build/blog/blog
 clean: ${EXECUTABLE}
 	${EXECUTABLE} clean
 
-deploy: clean rebuild
+deploy:
 	rsync -a --checksum _site/ ${LIVE_URI}
 
 preview: rebuild
-	${EXECUTABLE} watch
+	${EXECUTABLE} watch -h "0.0.0.0"
 
 rebuild: ${EXECUTABLE}
 	${EXECUTABLE} rebuild
