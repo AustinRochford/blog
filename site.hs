@@ -27,6 +27,12 @@ main = hakyll $ do
             >>= loadAndApplyTemplate "templates/default.html" defaultContext
             >>= relativizeUrls
 
+    match "404.mkd" $ do
+        route   $ setExtension "html"
+        compile $ pandocCompiler'
+            >>= loadAndApplyTemplate "templates/default.html" defaultContext
+            >>= relativizeUrls
+
     --building posts and post-related pages
     --for some reason, moving it this late gets the links right while putting it first doesn't
     tags <- buildTags "posts/*" $ fromCapture "tags/*.html"
@@ -100,7 +106,7 @@ main = hakyll $ do
     match "templates/*" $ compile templateCompiler
 
 extensions :: Set.Set Extension
-extensions = Set.fromList [Ext_inline_notes, Ext_tex_math_dollars]
+extensions = Set.fromList [Ext_inline_notes, Ext_raw_html, Ext_tex_math_dollars]
 
 feedConfig :: FeedConfiguration
 feedConfig = FeedConfiguration {
