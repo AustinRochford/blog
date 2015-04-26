@@ -9,29 +9,29 @@ import Hakyll
 main :: IO ()
 main = hakyll $ do
     --rules to copy files (nearly) unmodified
-    match "css/**" $ do
-        route   idRoute
+    match "static/css/**" $ do
+        route   staticRoute
         compile compressCssCompiler
 
-    match "favicon.ico" $ do
-        route idRoute
+    match "static/favicon.ico" $ do
+        route staticRoute
         compile copyFileCompiler
+
+    match "static/about.mkd" $ do
+        route $ staticRoute `composeRoutes` setExtension "html"
+        compile $ pandocCompiler'
+            >>= loadAndApplyTemplate "templates/default.html" defaultContext
+            >>= relativizeUrls
+
+    match "static/404.mkd" $ do
+        route   $ staticRoute `composeRoutes` setExtension "html"
+        compile $ pandocCompiler'
+            >>= loadAndApplyTemplate "templates/default.html" defaultContext
+            >>= relativizeUrls
 
     match "resources/**" $ do
         route idRoute
         compile copyFileCompiler
-
-    match "about.mkd" $ do
-        route   $ setExtension "html"
-        compile $ pandocCompiler'
-            >>= loadAndApplyTemplate "templates/default.html" defaultContext
-            >>= relativizeUrls
-
-    match "404.mkd" $ do
-        route   $ setExtension "html"
-        compile $ pandocCompiler'
-            >>= loadAndApplyTemplate "templates/default.html" defaultContext
-            >>= relativizeUrls
 
     --building posts and post-related pages
     --for some reason, moving it this late gets the links right while putting it first doesn't
@@ -149,6 +149,9 @@ postsTagged tags pattern sortFilter = do
     template <- loadBody "templates/post-item.html"
     posts <- sortFilter =<< loadAll pattern
     applyTemplateList template postCtx posts
+
+staticRoute :: Routes
+staticRoute = gsubRoute "static/" (const "")
 
 taggedPostCtx :: Tags -> Context String
 taggedPostCtx tags = tagsField "tags" tags `mappend` postCtx
