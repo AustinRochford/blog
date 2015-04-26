@@ -8,33 +8,14 @@ import Hakyll
 
 main :: IO ()
 main = hakyll $ do
-    --rules to copy files (nearly) unmodified
-    match "static/css/**" $ do
-        route   staticRoute
-        compile compressCssCompiler
+    match "static/css/**" $ route staticRoute >> compile compressCssCompiler
 
-    match "static/favicon.ico" $ do
-        route staticRoute
-        compile copyFileCompiler
+    match "static/favicon.ico" $ route staticRoute >> compile copyFileCompiler
 
-    match "static/about.mkd" $ do
-        route $ staticRoute `composeRoutes` setExtension "html"
-        compile $ pandocCompiler'
-            >>= loadAndApplyTemplate "templates/default.html" defaultContext
-            >>= relativizeUrls
+    match "static/*.mkd" staticMarkdownRule
 
-    match "static/404.mkd" $ do
-        route   $ staticRoute `composeRoutes` setExtension "html"
-        compile $ pandocCompiler'
-            >>= loadAndApplyTemplate "templates/default.html" defaultContext
-            >>= relativizeUrls
+    match "resources/**" $ route idRoute >> compile copyFileCompiler
 
-    match "resources/**" $ do
-        route idRoute
-        compile copyFileCompiler
-
-    --building posts and post-related pages
-    --for some reason, moving it this late gets the links right while putting it first doesn't
     tags <- buildTags "posts/*" $ fromCapture "tags/*.html"
 
     match "posts/*" $ do
@@ -58,17 +39,15 @@ main = hakyll $ do
                 >>= loadAndApplyTemplate "templates/default.html" archiveCtx
                 >>= relativizeUrls
 
-    --building tag pages and tag cloud
     tagsRules tags $ \tag pattern -> do
         let tagCtx = constField "title" ("Posts tagged " ++ tag) `mappend` defaultContext
 
         route idRoute
-        compile $ do
-            postsTagged tags pattern recentFirst
-                >>= makeItem
-                >>= loadAndApplyTemplate "templates/tag.html" tagCtx
-                >>= loadAndApplyTemplate "templates/default.html" tagCtx
-                >>= relativizeUrls
+        compile $ postsTagged tags pattern recentFirst
+            >>= makeItem
+            >>= loadAndApplyTemplate "templates/tag.html" tagCtx
+            >>= loadAndApplyTemplate "templates/default.html" tagCtx
+            >>= relativizeUrls
 
     create ["tags.html"] $ do
         route idRoute
@@ -81,7 +60,6 @@ main = hakyll $ do
                 >>= loadAndApplyTemplate "templates/default.html" cloudCtx
                 >>= relativizeUrls
 
-    --building the front page
     match "index.html" $ do
         route idRoute
         compile $ do
@@ -93,16 +71,14 @@ main = hakyll $ do
                 >>= loadAndApplyTemplate "templates/default.html" homeCtx
                 >>= relativizeUrls
 
-    --building the RSS feed
     create ["rss.xml"] $ do
         route idRoute
         compile $ do
             let feedCtx = postCtx `mappend` bodyField "description"
 
-            posts <- (take 10) <$> (recentFirst =<< loadAllSnapshots "posts/*" "content")
+            posts <- take 10 <$> (recentFirst =<< loadAllSnapshots "posts/*" "content")
             renderRss feedConfig feedCtx posts
 
-    --loading the templates
     match "templates/*" $ compile templateCompiler
 
 extensions :: Set.Set Extension
@@ -114,7 +90,7 @@ feedConfig = FeedConfiguration {
         feedDescription = "Math, Data, and Software",
         feedAuthorName  = "Austin Rochford",
         feedAuthorEmail = "austin.rochford@gmail.com",
-        feedRoot        = "http://www.austinrochford.com"
+        feedRoot        = "http://austinrochford.com"
     }
 
 mostRecentPost :: Compiler (Item String)
@@ -141,14 +117,20 @@ postList :: ([Item String] -> Compiler [Item String]) -> Compiler String
 postList sortFilter = do
     posts   <- sortFilter =<< loadAll "posts/*"
     itemTpl <- loadBody "templates/post-item.html"
-    list    <- applyTemplateList itemTpl postCtx posts
-    return list
+    applyTemplateList itemTpl postCtx posts
 
 postsTagged :: Tags -> Pattern -> ([Item String] -> Compiler [Item String]) -> Compiler String
 postsTagged tags pattern sortFilter = do
     template <- loadBody "templates/post-item.html"
     posts <- sortFilter =<< loadAll pattern
     applyTemplateList template postCtx posts
+
+staticMarkdownRule :: Rules ()
+staticMarkdownRule = do
+    route $ staticRoute `composeRoutes` setExtension "html"
+    compile $ pandocCompiler'
+        >>= loadAndApplyTemplate "templates/default.html" defaultContext
+        >>= relativizeUrls
 
 staticRoute :: Routes
 staticRoute = gsubRoute "static/" (const "")
