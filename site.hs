@@ -102,7 +102,7 @@ main = hakyll $ do
             posts <- (take 10) <$> (recentFirst =<< loadAllSnapshots "posts/*" "content")
             renderRss feedConfig feedCtx posts
 
-    --loading the templated
+    --loading the templates
     match "templates/*" $ compile templateCompiler
 
 extensions :: Set.Set Extension
