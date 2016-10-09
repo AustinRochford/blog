@@ -1,0 +1,48 @@
+---
+title: Talks
+---
+
+Talks
+-----
+
+#### Variational Inference in Python
+
+[PyData DC 2016](http://pydata.org/dc2016/), October 8, 2016
+
+<center><img src="/resources/talks/img/elbo.png" width=400></center>
+
+[Slides](/resources/talks/dydata-dc-2016-variational-python.slides.html)
+
+[Jupyter Notebook](https://nbviewer.jupyter.org/gist/AustinRochford/91cabfd2e1eecf9049774ce529ba4c16)
+
+**Abstract:** Bayesian inference has proven to be a valuable approach to many machine learning problems. Unfortunately, many interesting Bayesian models do not have closed-form posterior distributions. Simulation via the family Markov chain Monte Carlo (MCMC) algorithms is the most popular method of approximating the posterior distribution for these analytically intractible models. While these algorithms (appropriately used) are guaranteed to converge to the posterior given sufficient time, they are often difficult to scale to large data sets and hard to parallelize. Variational inference is an alternative approach that approximates intractible posteriors through optimization instead of simulation. By restricting the class of approximating distributions, variational inference allows control of the tradeoff between computational complexity and accuracy of the approximation. Variational inference can also take advantage of stochastic and parallel optimization algorithms to scale to large data sets. One drawback of variational inference is that in its most basic form, it can require a lot of model-specific manual calculations. Recent mathematical advances in black box variational inference (BBVI) and automatic differentiation variational inference (ADVI) along with advances in open source computational frameworks such as Theano and TensorFlow have made variational inference more accessible to non-specialists. This talk will begin with an introduction to variational inference, BBVI, and ADVI, then illustrate some of the software packages (PyMC3 and Edward) that make these variational inference algorithms available to Python developers.
+
+<hr>
+
+#### An Introduction to Probabilistic Programming
+
+[DataPhilly Meetup](http://www.meetup.com/DataPhilly/events/231891090/), July 13, 2016
+
+<center><iframe width="560" height="315" src="https://www.youtube.com/embed/huz4qFjXP2Q?start=3067" frameborder="0" allowfullscreen></iframe></center>
+
+[Slides](/resources/talks/dataphilly-jul2016.slides.html)
+
+[Jupyter Notebook](https://nbviewer.jupyter.org/gist/AustinRochford/7e13346dd56853217cca48490da0dcbd)
+
+**Abstract:** Probabilistic programming is a paradigm in which the programmer specifies a generative probability model for observed data and the language/software library infers the (approximate) values/distributions of unobserved parameters.  By separating the task of model specification from inference, probabilistic programming allows the modeler to “tell the story” of how the data were generated without explicitly developing an inference algorithm.  This separation makes inference in many complex models more accessible.
+
+This talk will give an introduction to probabilistic programming in Python using pymc3 and will also give a brief overview of the wider probabilistic programming ecosystem. 
+
+<hr>
+
+#### Bayesian Optimization with Gaussian Processes
+
+[DataPhilly Meetup](http://www.meetup.com/DataPhilly/events/228387481/), February 18, 2016
+
+<center><img src="/resources/talks/img/bayes_opt.gif" width=600></center>
+
+[Slides](/resources/talks/dataphilly-feb2016.slides.html)
+
+[Jupyter Notebook](https://nbviewer.jupyter.org/gist/AustinRochford/2a663b273067023ead18)
+
+**Abstract:** Bayesian optimization is a technique for finding the extrema of functions which are expensive, difficult, or time-consuming to evaluate. It has many applications to optimizing the hyperparameters of machine learning models, optimizing the inputs to real-world experiments and processes, etc. This talk will introduce the Gaussian process approach to Bayesian optimization, with sample code in Python.
