@@ -9,7 +9,7 @@ Talks
 
 [PyData DC 2016](http://pydata.org/dc2016/), October 8, 2016
 
-<center><img src="/resources/talks/img/elbo.png" width=400></center>
+<center><iframe width="560" height="315" src="https://www.youtube.com/embed/3KGZDC3-_iY" frameborder="0" allowfullscreen></iframe></center>
 
 [Slides](/resources/talks/dydata-dc-2016-variational-python.slides.html)
 
