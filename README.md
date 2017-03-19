@@ -19,3 +19,8 @@ The executable will look in the `posts/` folder for posts (quelle suprise!).  Ea
 By default, the site is deployed using `rsync`.  To modify the desintation, change the value of `LIVE_URI` in the Makefile.
 
 This code is distributed under the [MIT License](http://opensource.org/licenses/MIT).
+
+```bash
+stack docker pull
+stack build
+```
