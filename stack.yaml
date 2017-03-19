@@ -10,3 +10,4 @@ extra-package-dbs: []
 
 docker:
     enable: true
+    run-args: ["--net=bridge", "--publish=8000:8000"]
