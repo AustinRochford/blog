@@ -1,9 +1,5 @@
 *.swp
-site
-site.o
-site.hi
 _*
-posts/
-resources/
 *.DS_Store
 .stack-work
+site-src

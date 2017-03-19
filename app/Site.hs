@@ -8,22 +8,22 @@ import Hakyll
 
 main :: IO ()
 main = hakyll $ do
-    match "static/css/**" $ route staticRoute >> compile compressCssCompiler
+    match "site-src/static/css/**" $ route staticRoute >> compile compressCssCompiler
 
-    match "static/favicon.ico" $ route staticRoute >> compile copyFileCompiler
+    match "site-src/static/favicon.ico" $ route staticRoute >> compile copyFileCompiler
 
-    match "static/*.mkd" staticMarkdownRule
+    match "site-src/static/*.mkd" staticMarkdownRule
 
-    match "resources/**" $ route idRoute >> compile copyFileCompiler
+    match "site-src/resources/**" $ route baseRoute >> compile copyFileCompiler
 
-    tags <- buildTags "posts/*" $ fromCapture "tags/*.html"
+    tags <- buildTags "site-src/posts/*" $ fromCapture "tags/*.html"
 
-    match "posts/*" $ do
-        route $ setExtension "html"
+    match "site-src/posts/*" $ do
+        route $ baseRoute `composeRoutes` setExtension "html"
         compile $ pandocCompiler'
-            >>= loadAndApplyTemplate "templates/post.html" (taggedPostCtx tags)
+            >>= loadAndApplyTemplate "site-src/templates/post.html" (taggedPostCtx tags)
             >>= saveSnapshot "content"
-            >>= loadAndApplyTemplate "templates/default.html" postCtx
+            >>= loadAndApplyTemplate "site-src/templates/default.html" postCtx
             >>= relativizeUrls
 
     create ["posts.html"] $ do
@@ -35,8 +35,8 @@ main = hakyll $ do
                     defaultContext
 
             makeItem ""
-                >>= loadAndApplyTemplate "templates/posts.html" archiveCtx
-                >>= loadAndApplyTemplate "templates/default.html" archiveCtx
+                >>= loadAndApplyTemplate "site-src/templates/posts.html" archiveCtx
+                >>= loadAndApplyTemplate "site-src/templates/default.html" archiveCtx
                 >>= relativizeUrls
 
     tagsRules tags $ \tag pattern -> do
@@ -45,8 +45,8 @@ main = hakyll $ do
         route idRoute
         compile $ postsTagged tags pattern recentFirst
             >>= makeItem
-            >>= loadAndApplyTemplate "templates/tag.html" tagCtx
-            >>= loadAndApplyTemplate "templates/default.html" tagCtx
+            >>= loadAndApplyTemplate "site-src/templates/tag.html" tagCtx
+            >>= loadAndApplyTemplate "site-src/templates/default.html" tagCtx
             >>= relativizeUrls
 
     create ["tags.html"] $ do
@@ -56,19 +56,19 @@ main = hakyll $ do
 
             renderTagCloud 100 300 tags
                 >>= makeItem
-                >>= loadAndApplyTemplate "templates/cloud.html" cloudCtx
-                >>= loadAndApplyTemplate "templates/default.html" cloudCtx
+                >>= loadAndApplyTemplate "site-src/templates/cloud.html" cloudCtx
+                >>= loadAndApplyTemplate "site-src/templates/default.html" cloudCtx
                 >>= relativizeUrls
 
-    match "index.html" $ do
-        route idRoute
+    match "site-src/index.html" $ do
+        route baseRoute
         compile $ do
             let indexCtx = field "post" $ const (itemBody <$> mostRecentPost)
             let homeCtx = constField "title" "Home" `mappend` defaultContext
 
             getResourceBody
                 >>= applyAsTemplate indexCtx
-                >>= loadAndApplyTemplate "templates/default.html" homeCtx
+                >>= loadAndApplyTemplate "site-src/templates/default.html" homeCtx
                 >>= relativizeUrls
 
     create ["rss.xml"] $ do
@@ -76,10 +76,14 @@ main = hakyll $ do
         compile $ do
             let feedCtx = postCtx `mappend` bodyField "description"
 
-            posts <- take 10 <$> (recentFirst =<< loadAllSnapshots "posts/*" "content")
+            posts <- take 10 <$> (recentFirst =<< loadAllSnapshots "site-src/posts/*" "content")
             renderRss feedConfig feedCtx posts
 
-    match "templates/*" $ compile templateCompiler
+    match "site-src/templates/*" $ compile templateCompiler
+
+
+baseRoute :: Routes
+baseRoute = gsubRoute "site-src/" (const "")
 
 extensions :: Set.Set Extension
 extensions = Set.fromList [Ext_inline_notes, Ext_raw_html, Ext_tex_math_dollars]
@@ -94,7 +98,7 @@ feedConfig = FeedConfiguration {
     }
 
 mostRecentPost :: Compiler (Item String)
-mostRecentPost = head <$> (recentFirst =<< loadAllSnapshots "posts/*" "content")
+mostRecentPost = head <$> (recentFirst =<< loadAllSnapshots "site-src/posts/*" "content")
 
 pandocCompiler' :: Compiler (Item String)
 pandocCompiler' = pandocCompilerWith pandocMathReaderOptions pandocMathWriterOptions
@@ -115,13 +119,13 @@ postCtx = dateField "date" "%B %e, %Y" `mappend` defaultContext
 
 postList :: ([Item String] -> Compiler [Item String]) -> Compiler String
 postList sortFilter = do
-    posts   <- sortFilter =<< loadAll "posts/*"
-    itemTpl <- loadBody "templates/post-item.html"
+    posts   <- sortFilter =<< loadAll "site-src/posts/*"
+    itemTpl <- loadBody "site-src/templates/post-item.html"
     applyTemplateList itemTpl postCtx posts
 
 postsTagged :: Tags -> Pattern -> ([Item String] -> Compiler [Item String]) -> Compiler String
 postsTagged tags pattern sortFilter = do
-    template <- loadBody "templates/post-item.html"
+    template <- loadBody "site-src/templates/post-item.html"
     posts <- sortFilter =<< loadAll pattern
     applyTemplateList template postCtx posts
 
@@ -129,11 +133,11 @@ staticMarkdownRule :: Rules ()
 staticMarkdownRule = do
     route $ staticRoute `composeRoutes` setExtension "html"
     compile $ pandocCompiler'
-        >>= loadAndApplyTemplate "templates/default.html" defaultContext
+        >>= loadAndApplyTemplate "site-src/templates/default.html" defaultContext
         >>= relativizeUrls
 
 staticRoute :: Routes
-staticRoute = gsubRoute "static/" (const "")
+staticRoute = baseRoute `composeRoutes` gsubRoute "static/" (const "")
 
 taggedPostCtx :: Tags -> Context String
 taggedPostCtx tags = tagsField "tags" tags `mappend` postCtx
