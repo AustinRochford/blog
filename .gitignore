@@ -1,12 +1,6 @@
 *.swp
-site
-site.o
-site.hi
 _*
-posts/
-resources/
-.cabal-sandbox/
-dist/
-cabal.sandbox.config
 *.DS_Store
-.vagrant
+.stack-work
+site-src/posts
+site-src/resources

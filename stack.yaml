@@ -1,0 +1,13 @@
+resolver: lts-8.5
+
+packages:
+- '.'
+extra-deps: []
+
+flags: {}
+
+extra-package-dbs: []
+
+docker:
+    enable: true
+    run-args: ["--net=bridge", "--publish=8000:8000"]
