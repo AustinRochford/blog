@@ -1,0 +1,3 @@
+[submodule "site-src/blog-content"]
+	path = site-src/blog-content
+	url = git@github.com:AustinRochford/blog-content.git
