@@ -14,11 +14,11 @@ main = hakyll $ do
 
     match "site-src/static/*.mkd" staticMarkdownRule
 
-    match "site-src/resources/**" $ route baseRoute >> compile copyFileCompiler
+    match "site-src/blog-content/resources/**" $ route baseRoute >> compile copyFileCompiler
 
-    tags <- buildTags "site-src/posts/*" $ fromCapture "tags/*.html"
+    tags <- buildTags "site-src/blog-content/posts/*" $ fromCapture "tags/*.html"
 
-    match "site-src/posts/*" $ do
+    match "site-src/blog-content/posts/*" $ do
         route $ baseRoute `composeRoutes` setExtension "html"
         compile $ pandocCompiler'
             >>= loadAndApplyTemplate "site-src/templates/post.html" (taggedPostCtx tags)
@@ -76,14 +76,14 @@ main = hakyll $ do
         compile $ do
             let feedCtx = postCtx `mappend` bodyField "description"
 
-            posts <- take 10 <$> (recentFirst =<< loadAllSnapshots "site-src/posts/*" "content")
+            posts <- take 10 <$> (recentFirst =<< loadAllSnapshots "site-src/blog-content/posts/*" "content")
             renderRss feedConfig feedCtx posts
 
     match "site-src/templates/*" $ compile templateCompiler
 
 
 baseRoute :: Routes
-baseRoute = gsubRoute "site-src/" (const "")
+baseRoute = gsubRoute "site-src/" (const "") `composeRoutes` gsubRoute "blog-content/" (const "")
 
 extensions :: Set.Set Extension
 extensions = Set.fromList [Ext_inline_notes, Ext_raw_html, Ext_tex_math_dollars]
@@ -98,7 +98,7 @@ feedConfig = FeedConfiguration {
     }
 
 mostRecentPost :: Compiler (Item String)
-mostRecentPost = head <$> (recentFirst =<< loadAllSnapshots "site-src/posts/*" "content")
+mostRecentPost = head <$> (recentFirst =<< loadAllSnapshots "site-src/blog-content/posts/*" "content")
 
 pandocCompiler' :: Compiler (Item String)
 pandocCompiler' = pandocCompilerWith pandocMathReaderOptions pandocMathWriterOptions
@@ -119,7 +119,7 @@ postCtx = dateField "date" "%B %e, %Y" `mappend` defaultContext
 
 postList :: ([Item String] -> Compiler [Item String]) -> Compiler String
 postList sortFilter = do
-    posts   <- sortFilter =<< loadAll "site-src/posts/*"
+    posts   <- sortFilter =<< loadAll "site-src/blog-content/posts/*"
     itemTpl <- loadBody "site-src/templates/post-item.html"
     applyTemplateList itemTpl postCtx posts
 

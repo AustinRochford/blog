@@ -2,5 +2,4 @@
 _*
 *.DS_Store
 .stack-work
-site-src/posts
-site-src/resources
+site-src/blog-content
