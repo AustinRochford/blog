@@ -5,7 +5,20 @@ title: Talks
 Talks
 -----
 
-#### Variational Inference in Python
+### Probabilistic Programming in Python with PyMC3
+
+[ODSC East 2017](https://www.odsc.com/boston), May 5, 2017
+
+<center><blockquote class="twitter-tweet" data-lang="en"><p lang="en" dir="ltr">Awesome talk on <a href="https://twitter.com/hashtag/Bayesian?src=hash">#Bayesian</a> modeling with pymc3 by <a href="https://twitter.com/hashtag/Philly?src=hash">#Philly</a>&#39;s own <a href="https://twitter.com/AustinRochford">@AustinRochford</a> at <a href="https://twitter.com/hashtag/ODSC?src=hash">#ODSC</a>. What a great way to end the conference! <a href="https://t.co/MThlicQm37">pic.twitter.com/MThlicQm37</a></p>&mdash; Michael Becker (@beckerfuffle) <a href="https://twitter.com/beckerfuffle/status/860622766571126785">May 5, 2017</a></blockquote></center>
+<script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
+
+[Slides](http://austinrochford.com/resources/talks/pp-pymc3-odsc-east-2017.slides.html#/)
+
+[Jupyter Notebook](https://gist.github.com/AustinRochford/9589e6ec6649954e09bda5e7641f75d4)
+
+**Abstract:** Probabilistic programming is a paradigm in which the programmer specifies a generative probability model for observed data and the language/software library infers the distributions of unobserved quantities. By separating model specification from inference, probabilistic programming allows the modeler to "tell the story" of how the data were generated and then perform inference without explicitly developing an inference algorithm. This separation makes inference more accessible for many complex models.  PyMC3 is a Python package for probabilistic programming built on top of Theano that provides advanced sampling and variational inference algorithms and is undergoing rapid development.  This talk will give an introduction to probabilistic programming using PyMC3 and will conclude with a brief overview of the wider probabilistic programming ecosystem.
+
+### Variational Inference in Python
 
 [PyData DC 2016](http://pydata.org/dc2016/), October 8, 2016
 
@@ -19,7 +32,7 @@ Talks
 
 <hr>
 
-#### An Introduction to Probabilistic Programming
+### An Introduction to Probabilistic Programming
 
 [DataPhilly Meetup](http://www.meetup.com/DataPhilly/events/231891090/), July 13, 2016
 
@@ -35,7 +48,7 @@ This talk will give an introduction to probabilistic programming in Python using
 
 <hr>
 
-#### Bayesian Optimization with Gaussian Processes
+### Bayesian Optimization with Gaussian Processes
 
 [DataPhilly Meetup](http://www.meetup.com/DataPhilly/events/228387481/), February 18, 2016
 
