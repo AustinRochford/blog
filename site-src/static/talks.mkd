@@ -9,8 +9,7 @@ Talks
 
 [ODSC East 2017](https://www.odsc.com/boston), May 5, 2017
 
-<center><blockquote class="twitter-tweet" data-lang="en"><p lang="en" dir="ltr">Awesome talk on <a href="https://twitter.com/hashtag/Bayesian?src=hash">#Bayesian</a> modeling with pymc3 by <a href="https://twitter.com/hashtag/Philly?src=hash">#Philly</a>&#39;s own <a href="https://twitter.com/AustinRochford">@AustinRochford</a> at <a href="https://twitter.com/hashtag/ODSC?src=hash">#ODSC</a>. What a great way to end the conference! <a href="https://t.co/MThlicQm37">pic.twitter.com/MThlicQm37</a></p>&mdash; Michael Becker (@beckerfuffle) <a href="https://twitter.com/beckerfuffle/status/860622766571126785">May 5, 2017</a></blockquote></center>
-<script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
+<center><iframe width="560" height="315" src="https://www.youtube.com/embed/fQ1ba85XA90" frameborder="0" allowfullscreen></iframe></center>
 
 [Slides](http://austinrochford.com/resources/talks/pp-pymc3-odsc-east-2017.slides.html#/)
 
