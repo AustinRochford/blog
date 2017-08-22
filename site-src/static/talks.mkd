@@ -5,6 +5,20 @@ title: Talks
 Talks
 -----
 
+### Empowering Marketers with Bionic AI
+
+[phlAI](https://phlai.comcast.com/), August 15, 2017
+
+<center><blockquote class="twitter-tweet" data-lang="en"><p lang="en" dir="ltr">Explaining that without lots of care and study, it is _extremely easy and tempting_ to get the statistical properties of ML algorithms wrong <a href="https://t.co/YhUEVrmHxX">pic.twitter.com/YhUEVrmHxX</a></p>&mdash; Austin Rochford (@AustinRochford) <a href="https://twitter.com/AustinRochford/status/897601838140280832">August 15, 2017</a></blockquote></center>
+<script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
+
+With [David Brussin](http://brussin.com/David_Brussin.html), Founder & Chief Product Officer, Monetate
+
+**Abstract:** Marketers have for many years worked to use data to improve the business outcomes from the experiences they deliver. Statistical discipline, and then AI, have markedly improved the ability to drive these improvements. As we have entered what Forrester calls ‘the age of the customer,’ customer expectations have in some ways begun to exceed competitive pressures in marketing, leading to a desire to align business outcomes more directly with customer outcomes.
+In this talk, we will focus on the use of AI in empowering marketers to provide each of their individual customers with better experiences. AI has been previously used to automate actions taken by humans, often enabling new scale. Solutions that replace human creative input altogether are frequently imagined, but hardly imminent. We will survey, from marketer, customer, and data scientist perspectives, this progression in marketing, resulting in new ‘bionic’ techniques that combine marketer creativity with machine-driven scale.
+
+<hr>
+
 ### Probabilistic Programming in Python with PyMC3
 
 [ODSC East 2017](https://www.odsc.com/boston), May 5, 2017
@@ -16,6 +30,8 @@ Talks
 [Jupyter Notebook](https://gist.github.com/AustinRochford/9589e6ec6649954e09bda5e7641f75d4)
 
 **Abstract:** Probabilistic programming is a paradigm in which the programmer specifies a generative probability model for observed data and the language/software library infers the distributions of unobserved quantities. By separating model specification from inference, probabilistic programming allows the modeler to "tell the story" of how the data were generated and then perform inference without explicitly developing an inference algorithm. This separation makes inference more accessible for many complex models.  PyMC3 is a Python package for probabilistic programming built on top of Theano that provides advanced sampling and variational inference algorithms and is undergoing rapid development.  This talk will give an introduction to probabilistic programming using PyMC3 and will conclude with a brief overview of the wider probabilistic programming ecosystem.
+
+<hr>
 
 ### Variational Inference in Python
 
