@@ -5,6 +5,16 @@ title: Talks
 Talks
 -----
 
+### Open Source Bayesian Inference in Python with PyMC3
+
+[FOSSCON](https://fosscon.us/), August 25, 2017
+
+[Slides](http://austinrochford.com/resources/talks/os-bayes-pymc3-fosscon-2017.slides.html)
+
+[Jupyter Notebook](https://gist.github.com/AustinRochford/d83ecc6acd17a632a2b9df788386540b)
+
+**Abstract:** In the last ten years, there have been a number of advancements in the study of Hamiltonian Monte Carlo algorithms that have enabled effective Bayesian statistical computation for much more complicated models than were previously feasible.  These algorithmic advancements have been accompanied by a number of open source probabilistic programming packages that make them accessible to programmers and statisticians.  PyMC3 is one such package written in Python and supported by NumFOCUS.
+
 ### Empowering Marketers with Bionic AI
 
 [phlAI](https://phlai.comcast.com/), August 15, 2017
