@@ -7,6 +7,12 @@ Talks
 
 ### Open Source Bayesian Inference in Python with PyMC3
 
+<style type="text/css">
+    .gist {width:800px !important;}
+</style>
+
+<center><script src="https://gist.github.com/AustinRochford/d83ecc6acd17a632a2b9df788386540b.js"></script></center>
+
 [FOSSCON](https://fosscon.us/), August 25, 2017
 
 [Slides](http://austinrochford.com/resources/talks/os-bayes-pymc3-fosscon-2017.slides.html)
