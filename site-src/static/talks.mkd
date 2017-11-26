@@ -2,16 +2,33 @@
 title: Talks
 ---
 
+<style type="text/css">
+    .gist {width:75% !important;}
+</style>
+
+
 Talks
 -----
 
+### Understanding NBA Foul Calls with Python
+
+<center>
+<script src="https://gist.github.com/AustinRochford/0edef7cb3a8916fbe283188ee7df0923.js"></script>
+</center>
+
+[PyData NYC](https://pydata.org/nyc2017/schedule/presentation/36/), November 27, 2017
+
+[Slides](http://austinrochford.com/resources/talks/nba-fouls-pydata-nyc-2017.slides.html)
+
+[Jupyter Notebook](http://nbviewer.jupyter.org/gist/AustinRochford/0edef7cb3a8916fbe283188ee7df0923)
+
+**Abstract:** Since 2015, the NBA has released a detailed report of foul calls and non-calls that occur in the final two minutes of close games. This talk is a case study in using open source Python packages to analyze these reports in order to understand the relationship between game dynamics, player abilities, and foul calls. Our main goal is to quantify the relationship between player ability and foul calls. Since intentional fouls are a ubiquitous part of the NBA endgame, this data set also contains rich information about the relationship between game dynamics and intentional fouls for us to model.
+
 ### Open Source Bayesian Inference in Python with PyMC3
 
-<style type="text/css">
-    .gist {width:800px !important;}
-</style>
-
-<center><script src="https://gist.github.com/AustinRochford/d83ecc6acd17a632a2b9df788386540b.js"></script></center>
+<center>
+<script src="https://gist.github.com/AustinRochford/d83ecc6acd17a632a2b9df788386540b.js"></script>
+</center>
 
 [FOSSCON](https://fosscon.us/), August 25, 2017
 
