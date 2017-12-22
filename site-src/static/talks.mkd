@@ -13,7 +13,7 @@ Talks
 ### Understanding NBA Foul Calls with Python
 
 <center>
-<script src="https://gist.github.com/AustinRochford/0edef7cb3a8916fbe283188ee7df0923.js"></script>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/S-GGnyMkJcw" frameborder="0" gesture="media" allow="encrypted-media" allowfullscreen></iframe>
 </center>
 
 [PyData NYC](https://pydata.org/nyc2017/schedule/presentation/36/), November 27, 2017
