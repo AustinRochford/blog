@@ -1,0 +1,118 @@
+---
+title: Projects
+---
+
+Projects
+-----
+
+<div class="panel panel-default">
+<div class="panel-heading">
+<h3 class="panel-title">PyMC3</h3>
+</div>
+<div class="panel-body">
+<div class="row">
+<div class="col-md-4">
+<center><img src="https://camo.githubusercontent.com/2af4bb9d3ff6744a6ad1aab0b2b916b5efee8b49/68747470733a2f2f63646e2e7261776769742e636f6d2f70796d632d646576732f70796d63332f6d61737465722f646f63732f6c6f676f732f7376672f50794d43335f62616e6e65722e737667" alt="PyMC3 logo"></center>
+</div>
+<div class="col-md-8">
+<p>I am one of the developers of [PyMC3](https://github.com/pymc-devs/pymc3), an open source library for probabilistic programming in Python. I mainly contribute documentation, examples, and statistical distributions and utilities.  Many of my [talks](/talks.html) are about PyMC3, probabilistic programming, and modern Bayesian inference.</p>
+</div>
+</div>
+</div>
+</div>
+
+<div class="panel panel-default">
+<div class="panel-heading">
+<h3 class="panel-title">webmc3</h3>
+</div>
+<div class="panel-body">
+<div class="row">
+<div class="col-md-4">
+<center><img src="https://media.giphy.com/media/3oFzmg4wfP0aiqNcLm/giphy.gif" width=300></center>
+</div>
+<div class="col-md-8">
+<p>I am the developer of [webmc3](https://github.com/AustinRochford/webmc3), an open source web interface for exploring PyMC3 traces inspired by [ShinyStan](http://mc-stan.org/users/interfaces/shinystan).  Webmc3 uses [Dash](https://plot.ly/products/dash/) to generate a React frontend based on a Python backend.  The project's long-term goal is to implement the visualizations from [_Visualization in Bayesian Workflow_](https://github.com/AustinRochford/webmc3).</p>
+</div>
+</div>
+</div>
+</div>
+
+<div class="panel panel-default">
+<div class="panel-heading">
+<h3 class="panel-title">PyCEBox</h3>
+</div>
+<div class="panel-body">
+<div class="row">
+<div class="col-md-4">
+<center><img src="https://raw.githubusercontent.com/AustinRochford/PyCEbox/master/img/ice_demo.png" width=300></center>
+</div>
+<div class="col-md-8">
+<p>I am the developer of [PyCEBox](https://github.com/AustinRochford/PyCEBox), the Python Individual Conditional Expectation Toolbox.  [Individual conditional expectation plots](http://arxiv.org/abs/1309.6392) are a tool for visualizing the relationship between features and precitions for black box machine learning models.  PyCEBox uses Pandas and Matplotlib to produce individual conditional expectation plots for any machine learning model that provides a scikit-learn-like prediction interface.</p>
+</div>
+</div>
+</div>
+</div>
+
+<div class="panel panel-default">
+<div class="panel-heading">
+<h3 class="panel-title">_Statistical Rethinking_ with Python and PyMC3</h3>
+</div>
+<div class="panel-body">
+<div class="row">
+<div class="col-md-4">
+<center><img src="https://images.tandf.co.uk/common/jackets/amazon/978148225/9781482253443.jpg" height=150></center>
+</div>
+<div class="col-md-8">
+<p>I contributed to a project that ported the book [_Statistical Rethinking: A Bayesian Course with Examples in R and Stan_](http://xcelab.net/rm/statistical-rethinking/) from R and [Stan](http://mc-stan.org/) to Python and PyMC3.  I ported [Chapter 8, Markov Chain Monte Carlo](_https://github.com/aloctavodia/Statistical-Rethinking-with-Python-and-PyMC3/blob/master/Chp_08.ipynb) and [Chapter 11, Monsters and Mixtures](https://github.com/aloctavodia/Statistical-Rethinking-with-Python-and-PyMC3/blob/master/Chp_11.ipynb).</p> 
+</div>
+</div>
+</div>
+</div>
+
+<div class="panel panel-default">
+<div class="panel-heading">
+<h3 class="panel-title">s3nb</h3>
+</div>
+<div class="panel-body">
+<div class="row">
+<div class="col-md-4">
+<center><img src="https://www.systutorials.com/wp/files/2015/11/AmazonS3-e1448589113191.png" height=200></center>
+</div>
+<div class="col-md-8">
+<p>[s3nb](https://github.com/monetate/s3nb) is an open source [Jupyter](http://jupyter.org/) notebook manager that persists notebooks to [Amazon S3](https://aws.amazon.com/s3/), so that the notebooks persist across cloud instances.</p> 
+</div>
+</div>
+</div>
+</div>
+
+<div class="panel panel-default">
+<div class="panel-heading">
+<h3 class="panel-title">s3img-ipython-magic</h3>
+</div>
+<div class="panel-body">
+<div class="row">
+<div class="col-md-4">
+<center><img src="https://raw.githubusercontent.com/AustinRochford/s3img-ipython-magic/master/s3img_demo.png" height=200></center>
+</div>
+<div class="col-md-8">
+<p>[s3img-ipython-magic](https://github.com/AustinRochford/s3img-ipython-magic) is a Jupyter magic that displays images stored in Amazon S3.</p> 
+</div>
+</div>
+</div>
+</div>
+
+<div class="panel panel-default">
+<div class="panel-heading">
+<h3 class="panel-title">giphy-ipython-magic</h3>
+</div>
+<div class="panel-body">
+<div class="row">
+<div class="col-md-4">
+<center><img src="https://raw.githubusercontent.com/AustinRochford/giphy-ipython-magic/master/demo.gif" height=150></center>
+</div>
+<div class="col-md-8">
+<p>[giphy-ipython-magic](https://github.com/AustinRochford/giphy-ipython-magic) is a Jupyter magic that searches [Giphy](https://giphy.com/) and displays the results in a Jupyter notebook.</p> 
+</div>
+</div>
+</div>
+</div>
