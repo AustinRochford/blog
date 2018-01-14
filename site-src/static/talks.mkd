@@ -10,104 +10,99 @@ title: Talks
 Talks
 -----
 
-### Understanding NBA Foul Calls with Python
+<div class="panel panel-default">
+<div class="panel-heading">
+<h3 class="panel-title">Understanding NBA Foul Calls with Python</h3>
+</div>
+<div class="panel-body">
+<center><iframe width="560" height="315" src="https://www.youtube.com/embed/S-GGnyMkJcw" frameborder="0" gesture="media" allow="encrypted-media" allowfullscreen></iframe></center>
 
-<center>
-<iframe width="560" height="315" src="https://www.youtube.com/embed/S-GGnyMkJcw" frameborder="0" gesture="media" allow="encrypted-media" allowfullscreen></iframe>
-</center>
-
-[PyData NYC](https://pydata.org/nyc2017/schedule/presentation/36/), November 27, 2017
-
-[Slides](http://austinrochford.com/resources/talks/nba-fouls-pydata-nyc-2017.slides.html)
-
-[Jupyter Notebook](http://nbviewer.jupyter.org/gist/AustinRochford/0edef7cb3a8916fbe283188ee7df0923)
+[PyData NYC](https://pydata.org/nyc2017/schedule/presentation/36/) &#8226; November 27, 2017 &#8226; [Slides](http://austinrochford.com/resources/talks/nba-fouls-pydata-nyc-2017.slides.html) &#8226; [Jupyter Notebook](http://nbviewer.jupyter.org/gist/AustinRochford/0edef7cb3a8916fbe283188ee7df0923)
 
 **Abstract:** Since 2015, the NBA has released a detailed report of foul calls and non-calls that occur in the final two minutes of close games. This talk is a case study in using open source Python packages to analyze these reports in order to understand the relationship between game dynamics, player abilities, and foul calls. Our main goal is to quantify the relationship between player ability and foul calls. Since intentional fouls are a ubiquitous part of the NBA endgame, this data set also contains rich information about the relationship between game dynamics and intentional fouls for us to model.
+</div>
+</div>
 
-<hr>
+<div class="panel panel-default">
+<div class="panel-heading">
+<h3 class="panel-title">Open Source Bayesian Inference in Python with PyMC3</h3>
+</div>
+<div class="panel-body">
+<center> <script src="https://gist.github.com/AustinRochford/d83ecc6acd17a632a2b9df788386540b.js"></script> </center>
 
-### Open Source Bayesian Inference in Python with PyMC3
-
-<center>
-<script src="https://gist.github.com/AustinRochford/d83ecc6acd17a632a2b9df788386540b.js"></script>
-</center>
-
-[FOSSCON](https://fosscon.us/), August 25, 2017
-
-[Slides](http://austinrochford.com/resources/talks/os-bayes-pymc3-fosscon-2017.slides.html)
-
-[Jupyter Notebook](https://gist.github.com/AustinRochford/d83ecc6acd17a632a2b9df788386540b)
+[FOSSCON](https://fosscon.us/) &#8226; August 25, 2017 &#8226; [Slides](http://austinrochford.com/resources/talks/os-bayes-pymc3-fosscon-2017.slides.html) &#8226; [Jupyter Notebook](https://gist.github.com/AustinRochford/d83ecc6acd17a632a2b9df788386540b) 
 
 **Abstract:** In the last ten years, there have been a number of advancements in the study of Hamiltonian Monte Carlo algorithms that have enabled effective Bayesian statistical computation for much more complicated models than were previously feasible. These algorithmic advancements have been accompanied by a number of open source probabilistic programming packages that make them accessible to programmers and statisticians. PyMC3 is one such package written in Python and supported by NumFOCUS. This workshop will give an introduction to probabilistic programming with PyMC3. No preexisting knowledge of Bayesian statistics is necessary; a working knowledge of Python will be helpful.
+</div>
+</div>
 
-<hr>
-
-### Empowering Marketers with Bionic AI
-
-[phlAI](https://phlai.comcast.com/), August 15, 2017
-
+<div class="panel panel-default">
+<div class="panel-heading">
+<h3 class="panel-title">Empowering Marketers with Bionic AI</h3>
+</div>
+<div class="panel-body">
 <center><blockquote class="twitter-tweet" data-lang="en"><p lang="en" dir="ltr">Explaining that without lots of care and study, it is _extremely easy and tempting_ to get the statistical properties of ML algorithms wrong <a href="https://t.co/YhUEVrmHxX">pic.twitter.com/YhUEVrmHxX</a></p>&mdash; Austin Rochford (@AustinRochford) <a href="https://twitter.com/AustinRochford/status/897601838140280832">August 15, 2017</a></blockquote></center>
 <script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
 
-With [David Brussin](http://brussin.com/David_Brussin.html), Founder & Chief Product Officer, Monetate
+[phlAI](https://phlai.comcast.com/) &#8226; August 15, 2017 &#8226; With [David Brussin](http://brussin.com/David_Brussin.html), Founder & Chief Product Officer, Monetate
 
 **Abstract:** Marketers have for many years worked to use data to improve the business outcomes from the experiences they deliver. Statistical discipline, and then AI, have markedly improved the ability to drive these improvements. As we have entered what Forrester calls ‘the age of the customer,’ customer expectations have in some ways begun to exceed competitive pressures in marketing, leading to a desire to align business outcomes more directly with customer outcomes.
 In this talk, we will focus on the use of AI in empowering marketers to provide each of their individual customers with better experiences. AI has been previously used to automate actions taken by humans, often enabling new scale. Solutions that replace human creative input altogether are frequently imagined, but hardly imminent. We will survey, from marketer, customer, and data scientist perspectives, this progression in marketing, resulting in new ‘bionic’ techniques that combine marketer creativity with machine-driven scale.
+</div>
+</div>
 
-<hr>
-
-### Probabilistic Programming in Python with PyMC3
-
-[ODSC East 2017](https://www.odsc.com/boston), May 5, 2017
-
+<div class="panel panel-default">
+<div class="panel-heading">
+<h3 class="panel-title">Probabilistic Programming in Python with PyMC3</h3>
+</div>
+<div class="panel-body">
 <center><iframe width="560" height="315" src="https://www.youtube.com/embed/fQ1ba85XA90" frameborder="0" allowfullscreen></iframe></center>
-
-[Slides](http://austinrochford.com/resources/talks/pp-pymc3-odsc-east-2017.slides.html#/)
-
-[Jupyter Notebook](https://gist.github.com/AustinRochford/9589e6ec6649954e09bda5e7641f75d4)
+[ODSC East 2017](https://www.odsc.com/boston) &#8226; May 5, 2017 &#8226; [Slides](http://austinrochford.com/resources/talks/pp-pymc3-odsc-east-2017.slides.html#/) &#8226; [Jupyter Notebook](https://gist.github.com/AustinRochford/9589e6ec6649954e09bda5e7641f75d4)
 
 **Abstract:** Probabilistic programming is a paradigm in which the programmer specifies a generative probability model for observed data and the language/software library infers the distributions of unobserved quantities. By separating model specification from inference, probabilistic programming allows the modeler to "tell the story" of how the data were generated and then perform inference without explicitly developing an inference algorithm. This separation makes inference more accessible for many complex models.  PyMC3 is a Python package for probabilistic programming built on top of Theano that provides advanced sampling and variational inference algorithms and is undergoing rapid development.  This talk will give an introduction to probabilistic programming using PyMC3 and will conclude with a brief overview of the wider probabilistic programming ecosystem.
+</div>
+</div>
 
-<hr>
-
-### Variational Inference in Python
-
-[PyData DC 2016](http://pydata.org/dc2016/), October 8, 2016
-
+<div class="panel panel-default">
+<div class="panel-heading">
+<h3 class="panel-title">Variational Inference in Python</h3>
+</div>
+<div class="panel-body">
 <center><iframe width="560" height="315" src="https://www.youtube.com/embed/3KGZDC3-_iY" frameborder="0" allowfullscreen></iframe></center>
-
-[Slides](/resources/talks/dydata-dc-2016-variational-python.slides.html)
-
-[Jupyter Notebook](https://nbviewer.jupyter.org/gist/AustinRochford/91cabfd2e1eecf9049774ce529ba4c16)
+</div>
+<div class="panel-body">
+[PyData DC 2016](http://pydata.org/dc2016/) &#8226; October 8, 2016 &#8226; [Slides](/resources/talks/dydata-dc-2016-variational-python.slides.html) &#8226; [Jupyter Notebook](https://nbviewer.jupyter.org/gist/AustinRochford/91cabfd2e1eecf9049774ce529ba4c16)
 
 **Abstract:** Bayesian inference has proven to be a valuable approach to many machine learning problems. Unfortunately, many interesting Bayesian models do not have closed-form posterior distributions. Simulation via the family Markov chain Monte Carlo (MCMC) algorithms is the most popular method of approximating the posterior distribution for these analytically intractible models. While these algorithms (appropriately used) are guaranteed to converge to the posterior given sufficient time, they are often difficult to scale to large data sets and hard to parallelize. Variational inference is an alternative approach that approximates intractible posteriors through optimization instead of simulation. By restricting the class of approximating distributions, variational inference allows control of the tradeoff between computational complexity and accuracy of the approximation. Variational inference can also take advantage of stochastic and parallel optimization algorithms to scale to large data sets. One drawback of variational inference is that in its most basic form, it can require a lot of model-specific manual calculations. Recent mathematical advances in black box variational inference (BBVI) and automatic differentiation variational inference (ADVI) along with advances in open source computational frameworks such as Theano and TensorFlow have made variational inference more accessible to non-specialists. This talk will begin with an introduction to variational inference, BBVI, and ADVI, then illustrate some of the software packages (PyMC3 and Edward) that make these variational inference algorithms available to Python developers.
+</div>
+</div>
 
-<hr>
-
-### An Introduction to Probabilistic Programming
-
-[DataPhilly Meetup](http://www.meetup.com/DataPhilly/events/231891090/), July 13, 2016
-
+<div class="panel panel-default">
+<div class="panel-heading">
+<h3 class="panel-title">An Introduction to Probabilistic Programming</h3>
+</div>
+<div class="panel-body">
 <center><iframe width="560" height="315" src="https://www.youtube.com/embed/huz4qFjXP2Q?start=3067" frameborder="0" allowfullscreen></iframe></center>
-
-[Slides](/resources/talks/dataphilly-jul2016.slides.html)
-
-[Jupyter Notebook](https://nbviewer.jupyter.org/gist/AustinRochford/7e13346dd56853217cca48490da0dcbd)
+</div>
+<div class="panel-body">
+[DataPhilly Meetup](http://www.meetup.com/DataPhilly/events/231891090/) &#8226; July 13, 2016 &#8226; [Slides](/resources/talks/dataphilly-jul2016.slides.html) &#8226; [Jupyter Notebook](https://nbviewer.jupyter.org/gist/AustinRochford/7e13346dd56853217cca48490da0dcbd) 
 
 **Abstract:** Probabilistic programming is a paradigm in which the programmer specifies a generative probability model for observed data and the language/software library infers the (approximate) values/distributions of unobserved parameters.  By separating the task of model specification from inference, probabilistic programming allows the modeler to “tell the story” of how the data were generated without explicitly developing an inference algorithm.  This separation makes inference in many complex models more accessible.
 
 This talk will give an introduction to probabilistic programming in Python using pymc3 and will also give a brief overview of the wider probabilistic programming ecosystem. 
+</div>
+</div>
 
-<hr>
-
-### Bayesian Optimization with Gaussian Processes
-
-[DataPhilly Meetup](http://www.meetup.com/DataPhilly/events/228387481/), February 18, 2016
-
+<div class="panel panel-default">
+<div class="panel-heading">
+<h3 class="panel-title">Bayesian Optimization with Gaussian Processes</h3>
+</div>
+<div class="panel-body">
 <center><img src="/resources/talks/img/bayes_opt.gif" width=600></center>
-
-[Slides](/resources/talks/dataphilly-feb2016.slides.html)
-
-[Jupyter Notebook](https://nbviewer.jupyter.org/gist/AustinRochford/2a663b273067023ead18)
+</div>
+<div class="panel-body">
+[DataPhilly Meetup](http://www.meetup.com/DataPhilly/events/228387481/) &#8226; February 18, 2016 &#8226; [Slides](/resources/talks/dataphilly-feb2016.slides.html) &#8226; [Jupyter Notebook](https://nbviewer.jupyter.org/gist/AustinRochford/2a663b273067023ead18) 
 
 **Abstract:** Bayesian optimization is a technique for finding the extrema of functions which are expensive, difficult, or time-consuming to evaluate. It has many applications to optimizing the hyperparameters of machine learning models, optimizing the inputs to real-world experiments and processes, etc. This talk will introduce the Gaussian process approach to Bayesian optimization, with sample code in Python.
+</div>
+</div>
