@@ -12,6 +12,24 @@ Talks
 
 <div class="panel panel-default">
 <div class="panel-heading">
+<h3 class="panel-title">Two Years of Bayesian Bandits for E-Commerce</h3>
+</div>
+<div class="panel-body">
+[Boston Bayesians](https://www.meetup.com/Boston-Bayesians/events/246150640/) &#8226; January 22, 2018
+
+**Abstract:** At Monetate, we've deployed Bayesian bandits (both noncontextual and contextual) to help our clients optimize their e-commerce sites since early 2016. This talk is an overview of the lessons we've learned from both the processes of deploying real-time Bayesian machine learning systems at scale and building a data product on top of these systems that is accessible to non-technical users (marketers). This talk will cover:
+
+* The place of multi-armed bandits in the A/B testing industry,
+* Thompson sampling and the basic theory of Bayesian bandits,
+* Bayesian approaches for accommodating nonstationarity in bandit feedback,
+* User experience challenges in driving adoption of these technologies by nontechnical marketers.
+
+We will focus primarily on noncontextual bandits and give a brief overview of these problems in the contextual setting as time permits.
+</div>
+</div>
+
+<div class="panel panel-default">
+<div class="panel-heading">
 <h3 class="panel-title">Understanding NBA Foul Calls with Python</h3>
 </div>
 <div class="panel-body">
