@@ -16,7 +16,7 @@ Talks
 </div>
 <div class="panel-body">
 <center>
-<script src="https://gist.github.com/AustinRochford/e7483f5e7185320b446a9806eeb82ec2.js"></script>
+<img src="/resources/img/boston_bayesians.jpg" width=560>
 </center>
 [Boston Bayesians](https://www.meetup.com/Boston-Bayesians/events/246150640/) &#8226; January 22, 2018 &#8226; [Slides](/resources/talks/boston-bayesians-2017-bayes-bandits.slides.html) &#8226; [Jupyter Notebook](http://nbviewer.jupyter.org/gist/AustinRochford/e7483f5e7185320b446a9806eeb82ec2)
 
