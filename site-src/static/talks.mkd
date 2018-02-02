@@ -33,7 +33,7 @@ We will focus primarily on noncontextual bandits and give a brief overview of th
 
 <div class="panel panel-default">
 <div class="panel-heading">
-<h3 class="panel-title">Understanding NBA Foul Calls with Python</h3>
+<h3 class="panel-title"><a href="#pydata-nyc">Understanding NBA Foul Calls with Python</a></h3>
 </div>
 <div class="panel-body">
 <center><iframe width="560" height="315" src="https://www.youtube.com/embed/S-GGnyMkJcw" frameborder="0" gesture="media" allow="encrypted-media" allowfullscreen></iframe></center>
