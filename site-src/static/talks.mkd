@@ -18,6 +18,8 @@ Talks
 <center>
 <img src="/resources/img/boston_bayesians.jpg" width=560>
 </center>
+[Data Philly](https://www.meetup.com/DataPhilly/events/248580667/) &#8226; March 20, 2018 &#8226; [Slides](/resources/talks/data-philly-march-2018-bayes-bandits.slides.html) &#8226; [Jupyter Notebook](http://nbviewer.jupyter.org/gist/AustinRochford/88e9edf536aed3f46e8a1d87b83d1d57)
+
 [Boston Bayesians](https://www.meetup.com/Boston-Bayesians/events/246150640/) &#8226; January 22, 2018 &#8226; [Slides](/resources/talks/boston-bayesians-2017-bayes-bandits.slides.html) &#8226; [Jupyter Notebook](http://nbviewer.jupyter.org/gist/AustinRochford/e7483f5e7185320b446a9806eeb82ec2)
 
 **Abstract:** At Monetate, we've deployed Bayesian bandits (both noncontextual and contextual) to help our clients optimize their e-commerce sites since early 2016. This talk is an overview of the lessons we've learned from both the processes of deploying real-time Bayesian machine learning systems at scale and building a data product on top of these systems that is accessible to non-technical users (marketers). This talk will cover:
