@@ -18,7 +18,7 @@ Talks
 <center>
 <img src="/resources/img/boston_bayesians.jpg" width=560>
 </center>
-[Data Philly](https://www.meetup.com/DataPhilly/events/248580667/) &#8226; March 20, 2018 &#8226; [Slides](/resources/talks/data-philly-march-2018-bayes-bandits.slides.html) &#8226; [Jupyter Notebook](http://nbviewer.jupyter.org/gist/AustinRochford/88e9edf536aed3f46e8a1d87b83d1d57)
+[Data Philly](https://www.meetup.com/DataPhilly/events/248580667/) &#8226; April 2, 2018 &#8226; [Slides](/resources/talks/data-philly-april-2018-bayes-bandits.slides.html) &#8226; [Jupyter Notebook](http://nbviewer.jupyter.org/gist/AustinRochford/f378f4ecf87fe54960e9377d794d61a7)
 
 [Boston Bayesians](https://www.meetup.com/Boston-Bayesians/events/246150640/) &#8226; January 22, 2018 &#8226; [Slides](/resources/talks/boston-bayesians-2017-bayes-bandits.slides.html) &#8226; [Jupyter Notebook](http://nbviewer.jupyter.org/gist/AustinRochford/e7483f5e7185320b446a9806eeb82ec2)
 
