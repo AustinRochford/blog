@@ -18,7 +18,7 @@ Talks
 <center>
 <img src="/resources/img/boston_bayesians.jpg" width=560>
 </center>
-[Tom Tom Founders Festival Applied Machine Learning Conference](https://tomtomfest.com/machine-learning/) &#8226; April 12, 2018
+[Tom Tom Founders Festival Applied Machine Learning Conference](https://tomtomfest.com/machine-learning/) &#8226; April 12, 2018 &#8226; <a href="./resources/talks/tom-tom-aml-bayes-bandits.slides.html">Slides</a> &#8226; <a href="http://nbviewer.jupyter.org/gist/AustinRochford/62a12dfe87ba1c8410dbb3bef31918a9">Jupyter Notebook</a>
 
 [Data Philly](https://www.meetup.com/DataPhilly/events/248580667/) &#8226; April 2, 2018 &#8226; [Slides](/resources/talks/data-philly-april-2018-bayes-bandits.slides.html) &#8226; [Jupyter Notebook](http://nbviewer.jupyter.org/gist/AustinRochford/f378f4ecf87fe54960e9377d794d61a7)
 
