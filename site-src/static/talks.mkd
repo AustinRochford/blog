@@ -18,7 +18,7 @@ Talks
 <center>
 <script src="https://gist.github.com/AustinRochford/ab807b6d3ca64e903f911f3dd33a7044.js"></script>
 </center>
-[Open Data Science Conference East](https://odsc.com/boston) &#8226; May 3, 2018 &#8226; <a href="">Slides</a> &#8226; <a href="http://nbviewer.jupyter.org/gist/AustinRochford/ab807b6d3ca64e903f911f3dd33a7044">Jupyter Notebook</a>
+[Open Data Science Conference East](https://odsc.com/boston) &#8226; May 3, 2018 &#8226; <a href="http://nbviewer.jupyter.org/gist/AustinRochford/ab807b6d3ca64e903f911f3dd33a7044">Jupyter Notebook</a>
 </div>
 </div>
 
