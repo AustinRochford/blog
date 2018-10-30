@@ -21,6 +21,8 @@ Talks
 [Open Data Science Conference West](https://odsc.com/california) &#8226; November 2, 2018 &#8226; [Slides](/resources/talks/hmc-oss-pymc3-odsc-west-2018.slides.html) &#8226; <a href="https://nbviewer.jupyter.org/gist/AustinRochford/0f5870fb17c3369e37d108ad6dbe5166">Jupyter Notebook</a>
 
 [Open Data Science Conference East](https://odsc.com/boston) &#8226; May 3, 2018 &#8226; <a href="http://nbviewer.jupyter.org/gist/AustinRochford/ab807b6d3ca64e903f911f3dd33a7044">Jupyter Notebook</a>
+
+In the last ten years, there have been a number of advancements in the study of Hamiltonian Monte Carlo and variational inference algorithms that have enabled effective Bayesian statistical computation for much more complicated models than were previously feasible. These algorithmic advancements have been accompanied by a number of open source probabilistic programming packages that make them accessible to the general engineering, statistics, and data science communities. PyMC3 is one such package written in Python and supported by NumFOCUS. This talk will give an introduction to probabilistic programming with PyMC3, with a particular emphasis on the how open source probabilistic programming makes Bayesian inference algorithms near the frontier of academic research accessible to a wide audience.
 </div>
 </div>
 
