@@ -16,7 +16,9 @@ Talks
 </div>
 <div class="panel-body">
 <center>
-<script src="https://gist.github.com/AustinRochford/0f5870fb17c3369e37d108ad6dbe5166.js"></script>
+<video width="640" height="480" controls>
+  <source src="/resources/video/odsc-west-2018-pymc3.mp4" type="video/mp4">
+</video>
 </center>
 [Open Data Science Conference West](https://odsc.com/california) &#8226; November 2, 2018 &#8226; [Slides](/resources/talks/hmc-oss-pymc3-odsc-west-2018.slides.html) &#8226; <a href="https://nbviewer.jupyter.org/gist/AustinRochford/0f5870fb17c3369e37d108ad6dbe5166">Jupyter Notebook</a>
 
