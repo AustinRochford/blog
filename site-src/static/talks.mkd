@@ -34,7 +34,7 @@ In the last ten years, there have been a number of advancements in the study of 
 </div>
 <div class="panel-body">
 <center>
-<img src="/resources/img/boston_bayesians.jpg" width=560>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/vupP9MYXeFM" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 </center>
 [PyData NYC 2018](https://pydata.org/nyc2018/) &#8226; October 18, 2018 &#8226; <a href="./resources/talks/pydata-nyc-bayes-bandits.slides.html">Slides</a> &#8226; <a href="https://nbviewer.jupyter.org/gist/AustinRochford/e5a6f9a3f048bd2ab22f63e8ee198d6f">Jupyter Notebook</a>
 
