@@ -12,6 +12,23 @@ Talks
 
 <div class="panel panel-default">
 <div class="panel-heading">
+<h3 class="panel-title">Probabilistic Programming for Sports Analytics</h3>
+</div>
+<div class="panel-body">
+<center>
+<blockquote class="twitter-tweet" data-lang="en"><p lang="en" dir="ltr">A solid intro to probabilistic programming in sports analytics by <a href="https://twitter.com/AustinRochford?ref_src=twsrc%5Etfw">@AustinRochford</a> at tonight&#39;s Bayesian Data Analysis meetup. <a href="https://t.co/60GqpPAbdg">pic.twitter.com/60GqpPAbdg</a></p>&mdash; Chris Fonnesbeck (@fonnesbeck) <a href="https://twitter.com/fonnesbeck/status/1119015517908553731?ref_src=twsrc%5Etfw">April 18, 2019</a></blockquote>
+<script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+</center>
+[Bayesian Data Analysis Meetup, NYC](https://www.meetup.com/bda-group/events/260323418/) &#8226; April 19, 2019 &#8226; Slides <a href="./resources/talks/pp-sports-analytics-part-1.slides.html">Part 1</a> <a href="./resources/talks/pp-sports-analytics-part-2.slides.html">Part 2</a> &#8226; Jupyter Notebook <a href="https://nbviewer.jupyter.org/gist/AustinRochford/bb1371a78599f3db0fe9a771fbc2e25d">Part 1</a> <a href="https://nbviewer.jupyter.org/gist/AustinRochford/55482171f303baf3f0b90ab8230172a3">Part 2</a>
+
+At least since the publication of Moneyball in 2003 (a realistically much earlier), advanced sports statistics have become increasingly mainstream. Often, the developers of these advanced statistics have been passionate fans with a quantitative bent who are not formally trained in statistics. This situation has led to important discoveries, but often the quantification of uncertainty in these advanced statistics is based on ad-hoc rules-of-thumb.
+
+This talk will demonstrate how Bayesian hierarchical models and probabilistic programming provide a (relatively) user-friendly approach to quantifying uncertainty in sports analytics through examples from the MLB and NHL.
+</div>
+</div>
+
+<div class="panel panel-default">
+<div class="panel-heading">
 <h3 class="panel-title">The Hamiltonian Monte Carlo Revolution is Open Source: Probabilistic Programming with PyMC3</h3>
 </div>
 <div class="panel-body">
@@ -20,6 +37,8 @@ Talks
   <source src="/resources/video/odsc-west-2018-pymc3.mp4" type="video/mp4">
 </video>
 </center>
+[Tom Tom Founders Festival Applied Machine Learning Conference](https://tomtomfest.com/machine-learning/) &#8226; April 11, 2019 &#8226; <a href="./resources/talks/hmc-oss-amlc-2019.slides.html">Slides</a> &#8226; <a href="http://nbviewer.jupyter.org/gist/AustinRochford/c4cbcb09e46ba67008ce1f8218fa3ae2">Jupyter Notebook</a>
+
 [Open Data Science Conference West](https://odsc.com/california) &#8226; November 2, 2018 &#8226; [Slides](/resources/talks/hmc-oss-pymc3-odsc-west-2018.slides.html) &#8226; <a href="https://nbviewer.jupyter.org/gist/AustinRochford/0f5870fb17c3369e37d108ad6dbe5166">Jupyter Notebook</a>
 
 [Open Data Science Conference East](https://odsc.com/boston) &#8226; May 3, 2018 &#8226; <a href="http://nbviewer.jupyter.org/gist/AustinRochford/ab807b6d3ca64e903f911f3dd33a7044">Jupyter Notebook</a>
