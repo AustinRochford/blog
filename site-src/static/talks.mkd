@@ -55,6 +55,8 @@ In the last ten years, there have been a number of advancements in the study of 
 <center>
 <iframe width="560" height="315" src="https://www.youtube.com/embed/vupP9MYXeFM" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 </center>
+New York City College of Technology Math Club &#8226; April 18, 2019 &#8226; <a href="./resources/talks/city-tech-bayes-bandits.slides.html">Slides</a> &#8226; <a href="https://nbviewer.jupyter.org/gist/AustinRochford/c37857e1e490053c9fb817294faf3353">Jupyter Notebook</a>
+
 [PyData NYC 2018](https://pydata.org/nyc2018/) &#8226; October 18, 2018 &#8226; <a href="./resources/talks/pydata-nyc-bayes-bandits.slides.html">Slides</a> &#8226; <a href="https://nbviewer.jupyter.org/gist/AustinRochford/e5a6f9a3f048bd2ab22f63e8ee198d6f">Jupyter Notebook</a>
 
 [Tom Tom Founders Festival Applied Machine Learning Conference](https://tomtomfest.com/machine-learning/) &#8226; April 12, 2018 &#8226; <a href="./resources/talks/tom-tom-aml-bayes-bandits.slides.html">Slides</a> &#8226; <a href="http://nbviewer.jupyter.org/gist/AustinRochford/62a12dfe87ba1c8410dbb3bef31918a9">Jupyter Notebook</a>
