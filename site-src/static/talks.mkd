@@ -37,6 +37,8 @@ This talk will demonstrate how Bayesian hierarchical models and probabilistic pr
   <source src="/resources/video/odsc-west-2018-pymc3.mp4" type="video/mp4">
 </video>
 </center>
+[Open Data Science Conference East](https://odsc.com/boston) &#8226; May 2, 2019 &#8226; <a href="./resources/talks/oss-bayes-python-pymc3-odsc-east-2019.slides.html">Slides</a> &#8226; <a href="http://nbviewer.jupyter.org/gist/AustinRochford/505e6a3647c57dbe4bd55a4c311a2a95">Jupyter Notebook</a>
+
 [Tom Tom Founders Festival Applied Machine Learning Conference](https://tomtomfest.com/machine-learning/) &#8226; April 11, 2019 &#8226; <a href="./resources/talks/hmc-oss-amlc-2019.slides.html">Slides</a> &#8226; <a href="http://nbviewer.jupyter.org/gist/AustinRochford/c4cbcb09e46ba67008ce1f8218fa3ae2">Jupyter Notebook</a>
 
 [Open Data Science Conference West](https://odsc.com/california) &#8226; November 2, 2018 &#8226; [Slides](/resources/talks/hmc-oss-pymc3-odsc-west-2018.slides.html) &#8226; <a href="https://nbviewer.jupyter.org/gist/AustinRochford/0f5870fb17c3369e37d108ad6dbe5166">Jupyter Notebook</a>
